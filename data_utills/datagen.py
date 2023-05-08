@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import pickle
 import argparse
@@ -7,40 +8,47 @@ import pandas as pd
 from tqdm import tqdm
 
 
-def json_to_csv(config_file, split, sort, save_raw, train_split=0.8, val_split=0.1):
+def json_to_csv(inp_file, output_file):
+
+    print("reading json file from {}".format(inp_file))
+    if inp_file.endswith('.pickle'):
+        json_data = pickle.load(open(inp_file, 'rb'))
+    elif inp_file.endswith('.json'):
+        json_data = json.load(open(inp_file, 'r'))
+    else:
+        raise Exception("json file should be either json or pickle")
+
+    with open(output_file, 'w') as outfile:
+        outfile.write("instrument,datetime,open,high,low,close,volume\n")
+        for instrument, values in tqdm(json_data.items()):
+            # write header
+            for value in values:
+                date = value['date']
+                if inp_file.endswith('.json'):
+                    # remove timezone info from datetime string
+                    date = date[:-6]
+                else:
+                    date = date.tz_localize(None)
+
+                outfile.write(
+                    "{},{},{},{},{},{},{}\n".format(int(instrument), date, value['open'], value['high'], value['low'], value['close'], int(value['volume'])))
+
+    print("csv file saved at {}".format(output_file))
+
+
+def datagen(config_file, split, read_csv, train_split=0.8, val_split=0.1):
 
     config = json.load(open(config_file, 'r'))
     data_dir = config['data_dir']
-    json_file = config['data_json_path']
-    output_file = config['data_csv_path']
+    inp_file = config['data_inp_path']
+    output_file = config['data_out_path']
 
-    # load the json file
-    print("reading json file from {}".format(json_file))
-    json_data = pickle.load(open(json_file, 'rb'))
-
-    data_list = []
-    for instrument, values in tqdm(json_data.items()):
-        data_row = []
-        for value in values:
-            date = value['date']
-            data_row.append([instrument, date, value['open'], value['high'], value['low'], value['close'], value['volume']])
-        data_list.append(data_row)
-
-    # create a dataframe
-    df = pd.DataFrame(np.concatenate(data_list), columns=['instrument', 'datetime', 'open', 'high', 'low', 'close', 'volume'])
-
-    # remove the timezone info from datetime string
-    df['datetime'] = df['datetime'].apply(lambda x: x.replace(tzinfo=None))
-    # convert instrument, year, month, day, hour, minute, volume to int
-    df[['instrument', 'volume']] = df[['instrument', 'volume']].astype(int)
-
-    if sort:
-        print('sorting the dataframe')
-        df = df.sort_values(by=['instrument', 'datetime'])
-
-    if save_raw:
-        print("saving raw data, size: {}".format(len(df)))
-        df.to_csv(output_file, index=False)
+    if read_csv:
+        df = pd.read_csv(output_file, parse_dates=['datetime'])
+        print("file size: {} Mb".format(sys.getsizeof(df)/1024/1024))
+    else:
+        json_to_csv(inp_file, output_file)
+        return
 
     if split:
         # take instrument with all valid date present
@@ -49,8 +57,8 @@ def json_to_csv(config_file, split, sort, save_raw, train_split=0.8, val_split=0
         all_valid_minutes = pd.date_range(start=valid_time_start, end=valid_time_end, freq='1min').time
         all_valid_minutes = pd.Series(all_valid_minutes)
 
-        # filter only instrument in all valid minutes are present, for one given day only
         print('filtering out instruments with missing minutes')
+        # filter only instrument in all valid minutes are present, for one given day only
         print('size before filtering: {}, instruments: {}'.format(len(df), df['instrument'].nunique()))
         df = df.groupby(['instrument', df['datetime'].dt.date]).filter(lambda x: all_valid_minutes.isin(x['datetime'].dt.time).all())
         print('size of dataframe after filtering: {}, instruments: {}'.format(len(df), df['instrument'].nunique()))
@@ -60,10 +68,9 @@ def json_to_csv(config_file, split, sort, save_raw, train_split=0.8, val_split=0
         print('filtering out instruments with missing days')
         all_valid_days = df.groupby('instrument')['datetime'].apply(lambda x: x.dt.date.unique()).apply(pd.Series).stack().reset_index(level=1, drop=True)
         all_valid_days = pd.Series(all_valid_days.unique())
-        print('size of dataframe before filtering: {}'.format(len(df)))
+        print('size before filtering: {}, instruments: {}'.format(len(df), df['instrument'].nunique()))
         df = df.groupby('instrument').filter(lambda x: all_valid_days.isin(x['datetime'].dt.date).all())
-        print('size of dataframe after filtering: {}'.format(len(df)))
-        print('number of instruments in final dataframe: {}'.format(df['instrument'].nunique()))
+        print('size of dataframe after filtering: {}, instruments: {}'.format(len(df), df['instrument'].nunique()))
 
         # seperate out end data for test and val as per day basis for each instrument
         print('splitting the data into train, val and test')
@@ -96,9 +103,8 @@ def json_to_csv(config_file, split, sort, save_raw, train_split=0.8, val_split=0
 def parse_args():
     parser = argparse.ArgumentParser(description='json to csv')
     parser.add_argument('--config', help='configuration file', required=True)
-    parser.add_argument('--sort', help='sort the data', default=1, type=int)
-    parser.add_argument('--save_raw', help='save the raw data', default=0, type=int)
     parser.add_argument('--split', help='split the data into train, val and test', default=1, type=int)
+    parser.add_argument('--read_csv', help='read csv file', default=0, type=int)
     args = parser.parse_args()
     return args
 
@@ -107,8 +113,7 @@ def parse_args():
 if __name__ == '__main__':
 
     args = parse_args()
-    sort = args.sort
     split = args.split
-    save_raw = args.save_raw
     config_file = args.config
-    json_to_csv(config_file, split=split, sort=sort, save_raw=save_raw)
+    read_csv = args.read_csv
+    datagen(config_file, split=split, read_csv=read_csv)
