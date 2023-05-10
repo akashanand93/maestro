@@ -1,7 +1,11 @@
 import torch
-from torch.utils.data import Dataset, DataLoader
 import logging
 import datetime
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from torch.utils.data import Dataset, DataLoader
+
 
 class HistoricalData(Dataset):
     def __init__(self, data_directory, sequence_length_in_minutes=120, predict_after_in_minutes=5):
@@ -106,4 +110,87 @@ class HistoricalData(Dataset):
             end_idx = len(self.data)
         # Get the temp data
         temp_data = self.data[start_idx:end_idx]
+
+
+def csv_to_npy(data_dir, channel, mode):
+
+    data = pd.read_csv("{}/{}.csv".format(data_dir, mode), usecols=['instrument', 'datetime', channel])
+    data = data.sort_values(by=['instrument', 'datetime'])
+    # group by instrument and create a list of channel
+    data = data.groupby('instrument')[channel].apply(list).reset_index()
+    # create a numpy array of shape (num_instruments, num_datapoints)
+    data = np.array(data[channel].tolist())
+    return data
+
+class HistoricalDataCSV:
+
+    def __init__(self, data_dir, mode='train', channel='open', sequence_length=120, predict_window=10, price_cutoff=2,
+                 debug=False):
+
+        """
+            CSV FORMAT:
+            instrument	datetime	open	high	low	close	volume
+            264713	2023-01-09 09:15:00	2297.11	2297.11	2297.11	2297.11	0.0
+        """
+
+        self.mode = mode
+        self.debug = debug
+        self.channel = channel
+        self.data_dir = data_dir
+        self.price_cutoff = price_cutoff
+        self.predict_window = predict_window
+        self.sequence_length = sequence_length
+        self.data = csv_to_npy(data_dir, channel, mode)
+
+    def __len__(self):
+        return self.data.shape[1]//10
+
+    def __getitem__(self, idx):
+
+        # select a random sequence of length sequence_length + predict_window across all instruments
+        start_idx = np.random.randint(0, self.data.shape[1] - self.sequence_length - self.predict_window)
+        end_idx = start_idx + self.sequence_length + self.predict_window
+
+        # select start_idx to end_idx of all instruments
+        data = self.data[:, start_idx:end_idx]
+        # take the first sequence_length as input
+        x = data[:, :self.sequence_length]
+        # take the last predict_window as output
+        y = data[:, -self.predict_window:]
+
+        # take the last value of x as the price of the instrument
+        price_input = x[:, -1]
+
+        # select the max price of the instrument in the predict_window
+        price_output_max = np.max(y, axis=1)
+        price_output_min = np.min(y, axis=1)
+
+        # create a diff from price input to price output in percentage
+        price_diff_max = (price_output_max - price_input)/price_input
+        price_diff_min = (price_output_min - price_input)/price_input
+
+        # create label using price_diff, label:0 if price_diff < -price_cutoff, label:1 if price_diff > price_cutoff, label:2 otherwise
+        label_max = np.zeros_like(price_diff_max)
+        label_max[price_diff_min < -self.price_cutoff] = 0
+        label_max[price_diff_max > self.price_cutoff] = 1
+        label_max[(price_diff_max >= -self.price_cutoff) & (price_diff_max <= self.price_cutoff)] = 2
+
+        if self.debug:
+            # plot initial 10 instruments from data
+            for i in range(10):
+                plt.plot(data[i])
+
+        print(label_max)
+
+
+
+
+
+
+
+
+
+
+
+
 

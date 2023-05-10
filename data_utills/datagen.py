@@ -45,7 +45,7 @@ def datagen(config_file, split, read_csv, train_split=0.8, val_split=0.1):
 
     if read_csv:
         df = pd.read_csv(output_file, parse_dates=['datetime'])
-        print("file size: {} Mb".format(sys.getsizeof(df)/1024/1024))
+        print("\nfile size: {} Mb".format(sys.getsizeof(df)/1024/1024))
     else:
         json_to_csv(inp_file, output_file)
         return
@@ -57,23 +57,25 @@ def datagen(config_file, split, read_csv, train_split=0.8, val_split=0.1):
         all_valid_minutes = pd.date_range(start=valid_time_start, end=valid_time_end, freq='1min').time
         all_valid_minutes = pd.Series(all_valid_minutes)
 
-        print('filtering out instruments with missing minutes')
-        # filter only instrument in all valid minutes are present, for one given day only
+        print('\nfiltering out instruments with missing minutes')
         print('size before filtering: {}, instruments: {}'.format(len(df), df['instrument'].nunique()))
         df = df.groupby(['instrument', df['datetime'].dt.date]).filter(lambda x: all_valid_minutes.isin(x['datetime'].dt.time).all())
         print('size of dataframe after filtering: {}, instruments: {}'.format(len(df), df['instrument'].nunique()))
 
-        # take instrument with all valid date present
-        # pick a instrument with max number of days, and create a list of all days from it
-        print('filtering out instruments with missing days')
+        print('\nfiltering out instruments with missing days')
         all_valid_days = df.groupby('instrument')['datetime'].apply(lambda x: x.dt.date.unique()).apply(pd.Series).stack().reset_index(level=1, drop=True)
         all_valid_days = pd.Series(all_valid_days.unique())
         print('size before filtering: {}, instruments: {}'.format(len(df), df['instrument'].nunique()))
         df = df.groupby('instrument').filter(lambda x: all_valid_days.isin(x['datetime'].dt.date).all())
         print('size of dataframe after filtering: {}, instruments: {}'.format(len(df), df['instrument'].nunique()))
 
+        print('\nfiltering out instruments where volume is zero')
+        print('size before filtering: {}, instruments: {}'.format(len(df), df['instrument'].nunique()))
+        df = df.groupby('instrument').filter(lambda x: x['volume'].sum() != 0)
+        print('size of dataframe after filtering: {}, instruments: {}'.format(len(df), df['instrument'].nunique()))
+
         # seperate out end data for test and val as per day basis for each instrument
-        print('splitting the data into train, val and test')
+        print('\nsplitting the data into train, val and test')
         # get the unique instruments
         dates = df['datetime'].dt.date.unique()
 
