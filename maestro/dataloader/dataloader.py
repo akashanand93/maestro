@@ -1,3 +1,5 @@
+import os
+import json
 import torch
 import logging
 import datetime
@@ -115,17 +117,26 @@ class HistoricalData(Dataset):
 def csv_to_npy(data_dir, channel, mode):
 
     data = pd.read_csv("{}/{}.csv".format(data_dir, mode), usecols=['instrument', 'datetime', channel])
+
+    instrumen_config_path = os.path.join(data_dir, "instruments.json")
+    instrumen_config = json.load(open(instrumen_config_path, "r"))
+    instrumen_config = {i['instrument_token']: i for i in instrumen_config}
+
     data = data.sort_values(by=['instrument', 'datetime'])
+    # append a new column metadata to the dataframe from the instrument config
+
     # group by instrument and create a list of channel
     data = data.groupby('instrument')[channel].apply(list).reset_index()
     # create a numpy array of shape (num_instruments, num_datapoints)
+    meta_data = data['instrument'].apply(lambda x: instrumen_config[x]).tolist()
     data = np.array(data[channel].tolist())
-    return data
+
+    return data, meta_data
 
 class HistoricalDataCSV:
 
     def __init__(self, data_dir, mode='train', channel='open', sequence_length=120, predict_window=10, price_cutoff=2,
-                 debug=False):
+                 debug=False, meta=False):
 
         """
             CSV FORMAT:
@@ -133,6 +144,7 @@ class HistoricalDataCSV:
             264713	2023-01-09 09:15:00	2297.11	2297.11	2297.11	2297.11	0.0
         """
 
+        self.meta = meta
         self.mode = mode
         self.debug = debug
         self.channel = channel
@@ -140,15 +152,16 @@ class HistoricalDataCSV:
         self.price_cutoff = price_cutoff
         self.predict_window = predict_window
         self.sequence_length = sequence_length
-        self.data = csv_to_npy(data_dir, channel, mode)
+        self.data, self.metadata = csv_to_npy(data_dir, channel, mode)
 
     def __len__(self):
         return self.data.shape[1]//10
 
-    def __getitem__(self, idx):
+    def __getitem__(self, idx, start_idx=None):
 
         # select a random sequence of length sequence_length + predict_window across all instruments
-        start_idx = np.random.randint(0, self.data.shape[1] - self.sequence_length - self.predict_window)
+        if start_idx is None:
+            start_idx = np.random.randint(0, self.data.shape[1] - self.sequence_length - self.predict_window)
         end_idx = start_idx + self.sequence_length + self.predict_window
 
         # select start_idx to end_idx of all instruments
@@ -179,11 +192,11 @@ class HistoricalDataCSV:
             # plot initial 10 instruments from data
             for i in range(10):
                 plt.plot(data[i])
+            print(label_max)
 
-        print(label_max)
-
-
-
+        if self.meta:
+            return x, label_max, self.metadata
+        return x, label_max
 
 
 
