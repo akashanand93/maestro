@@ -58,14 +58,14 @@ class Model(nn.Module):
                 self.Linear_Seasonal.append(nn.Linear(self.seq_len,self.pred_len))
                 self.Linear_Trend.append(nn.Linear(self.seq_len,self.pred_len))
 
-                # Use this two lines if you want to visualize the weights
+                # Use this two lines if you want to visualize.py the weights
                 # self.Linear_Seasonal[i].weight = nn.Parameter((1/self.seq_len)*torch.ones([self.pred_len,self.seq_len]))
                 # self.Linear_Trend[i].weight = nn.Parameter((1/self.seq_len)*torch.ones([self.pred_len,self.seq_len]))
         else:
             self.Linear_Seasonal = nn.Linear(self.seq_len,self.pred_len)
             self.Linear_Trend = nn.Linear(self.seq_len,self.pred_len)
             
-            # Use this two lines if you want to visualize the weights
+            # Use this two lines if you want to visualize.py the weights
             # self.Linear_Seasonal.weight = nn.Parameter((1/self.seq_len)*torch.ones([self.pred_len,self.seq_len]))
             # self.Linear_Trend.weight = nn.Parameter((1/self.seq_len)*torch.ones([self.pred_len,self.seq_len]))
 

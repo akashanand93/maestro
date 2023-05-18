@@ -3,7 +3,7 @@ import sys
 import json
 import torch
 import numpy as np
-from models import DLinear
+from models import dlinear
 import matplotlib.pyplot as plt
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -32,7 +32,7 @@ class Visualize:
         self.individual = individual
         self.config = Config(seq_len, pred_len, channels, individual)
         self.checkpoint_path = os.path.join(self.base_code, "LTSF/checkpoints/", checkpoint, "checkpoint.pth")
-        self.model = DLinear.Model(self.config)
+        self.model = dlinear.DLinear(self.config)
         self.model.load_state_dict(torch.load(self.checkpoint_path))
         self.dataloader = HistoricalDataCSV(self.data_dir, mode='train', sequence_length=seq_len+pred_len, predict_window=10, price_cutoff=1, meta=True)
 

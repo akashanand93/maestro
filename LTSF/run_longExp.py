@@ -79,80 +79,85 @@ parser.add_argument('--use_multi_gpu', action='store_true', help='use multiple g
 parser.add_argument('--devices', type=str, default='0,1,2,3', help='device ids of multile gpus')
 parser.add_argument('--test_flop', action='store_true', default=False, help='See utils/tools for usage')
 
-args = parser.parse_args()
 
-args.use_gpu = True if torch.cuda.is_available() and args.use_gpu else False
 
-if args.use_gpu and args.use_multi_gpu:
-    args.dvices = args.devices.replace(' ', '')
-    device_ids = args.devices.split(',')
-    args.device_ids = [int(id_) for id_ in device_ids]
-    args.gpu = args.device_ids[0]
+# main function
+if __name__ == '__main__':
 
-print('Args in experiment:')
-print(args)
+    args = parser.parse_args()
 
-Exp = Exp_Main
+    args.use_gpu = True if torch.cuda.is_available() and args.use_gpu else False
 
-if args.is_training:
-    for ii in range(args.itr):
-        # setting record of experiments
-        setting = '{}_{}_{}_ft{}_sl{}_ll{}_pl{}_dm{}_nh{}_el{}_dl{}_df{}_fc{}_eb{}_dt{}_{}_{}'.format(
-            args.model_id,
-            args.model,
-            args.data,
-            args.features,
-            args.seq_len,
-            args.label_len,
-            args.pred_len,
-            args.d_model,
-            args.n_heads,
-            args.e_layers,
-            args.d_layers,
-            args.d_ff,
-            args.factor,
-            args.embed,
-            args.distil,
-            args.des, ii)
+    if args.use_gpu and args.use_multi_gpu:
+        args.dvices = args.devices.replace(' ', '')
+        device_ids = args.devices.split(',')
+        args.device_ids = [int(id_) for id_ in device_ids]
+        args.gpu = args.device_ids[0]
+
+    print('Args in experiment:')
+    print(args)
+
+    Exp = Exp_Main
+
+    if args.is_training:
+        for ii in range(args.itr):
+            # setting record of experiments
+            setting = '{}_{}_{}_ft{}_sl{}_ll{}_pl{}_dm{}_nh{}_el{}_dl{}_df{}_fc{}_eb{}_dt{}_{}_{}'.format(
+                args.model_id,
+                args.model,
+                args.data,
+                args.features,
+                args.seq_len,
+                args.label_len,
+                args.pred_len,
+                args.d_model,
+                args.n_heads,
+                args.e_layers,
+                args.d_layers,
+                args.d_ff,
+                args.factor,
+                args.embed,
+                args.distil,
+                args.des, ii)
+
+            exp = Exp(args)  # set experiments
+            print('>>>>>>>start training : {}>>>>>>>>>>>>>>>>>>>>>>>>>>'.format(setting))
+            exp.train(setting)
+
+            if not args.train_only:
+                print('>>>>>>>testing : {}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'.format(setting))
+                exp.test(setting)
+
+            if args.do_predict:
+                print('>>>>>>>predicting : {}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'.format(setting))
+                exp.predict(setting, True)
+
+            torch.cuda.empty_cache()
+    else:
+        ii = 0
+        setting = '{}_{}_{}_ft{}_sl{}_ll{}_pl{}_dm{}_nh{}_el{}_dl{}_df{}_fc{}_eb{}_dt{}_{}_{}'.format(args.model_id,
+                                                                                                      args.model,
+                                                                                                      args.data,
+                                                                                                      args.features,
+                                                                                                      args.seq_len,
+                                                                                                      args.label_len,
+                                                                                                      args.pred_len,
+                                                                                                      args.d_model,
+                                                                                                      args.n_heads,
+                                                                                                      args.e_layers,
+                                                                                                      args.d_layers,
+                                                                                                      args.d_ff,
+                                                                                                      args.factor,
+                                                                                                      args.embed,
+                                                                                                      args.distil,
+                                                                                                      args.des, ii)
 
         exp = Exp(args)  # set experiments
-        print('>>>>>>>start training : {}>>>>>>>>>>>>>>>>>>>>>>>>>>'.format(setting))
-        exp.train(setting)
-
-        if not args.train_only:
-            print('>>>>>>>testing : {}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'.format(setting))
-            exp.test(setting)
 
         if args.do_predict:
             print('>>>>>>>predicting : {}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'.format(setting))
             exp.predict(setting, True)
-
+        else:
+            print('>>>>>>>testing : {}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'.format(setting))
+            exp.test(setting, test=1)
         torch.cuda.empty_cache()
-else:
-    ii = 0
-    setting = '{}_{}_{}_ft{}_sl{}_ll{}_pl{}_dm{}_nh{}_el{}_dl{}_df{}_fc{}_eb{}_dt{}_{}_{}'.format(args.model_id,
-                                                                                                  args.model,
-                                                                                                  args.data,
-                                                                                                  args.features,
-                                                                                                  args.seq_len,
-                                                                                                  args.label_len,
-                                                                                                  args.pred_len,
-                                                                                                  args.d_model,
-                                                                                                  args.n_heads,
-                                                                                                  args.e_layers,
-                                                                                                  args.d_layers,
-                                                                                                  args.d_ff,
-                                                                                                  args.factor,
-                                                                                                  args.embed,
-                                                                                                  args.distil,
-                                                                                                  args.des, ii)
-
-    exp = Exp(args)  # set experiments
-
-    if args.do_predict:
-        print('>>>>>>>predicting : {}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'.format(setting))
-        exp.predict(setting, True)
-    else:
-        print('>>>>>>>testing : {}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'.format(setting))
-        exp.test(setting, test=1)
-    torch.cuda.empty_cache()
