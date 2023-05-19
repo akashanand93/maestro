@@ -40,8 +40,9 @@ def datagen(config_file, split, read_csv, train_split=0.8, val_split=0.1):
 
     config = json.load(open(config_file, 'r'))
     data_dir = config['data_dir']
-    inp_file = config['data_inp_path']
-    output_file = config['data_out_path']
+    inp_file = "{}/{}".format(data_dir, config['raw_data'])
+    output_file = "{}/{}".format(data_dir, config['raw_data_csv'])
+    filterd_data = "{}/{}".format(data_dir, config['filterd_data'])
 
     if read_csv:
         df = pd.read_csv(output_file, parse_dates=['datetime'])
@@ -73,6 +74,7 @@ def datagen(config_file, split, read_csv, train_split=0.8, val_split=0.1):
         print('size before filtering: {}, instruments: {}'.format(len(df), df['instrument'].nunique()))
         df = df.groupby('instrument').filter(lambda x: x['volume'].sum() != 0)
         print('size of dataframe after filtering: {}, instruments: {}'.format(len(df), df['instrument'].nunique()))
+        df.to_csv(filterd_data, index=False)
 
         # seperate out end data for test and val as per day basis for each instrument
         print('\nsplitting the data into train, val and test')

@@ -1,5 +1,6 @@
 {
   "data_dir": "/Users/shiva/Desktop/data_maestro/",
-  "data_inp_path": "/Users/shiva/Desktop/data_maestro/data.json",
-  "data_out_path": "/Users/shiva/Desktop/data_maestro/data.csv"
+  "raw_data": "data.json",
+  "raw_data_csv": "data.csv",
+  "filterd_data": "filtered_data.csv"
 }

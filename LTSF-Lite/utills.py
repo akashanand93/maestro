@@ -1,4 +1,5 @@
 import torch
+import json
 import numpy as np
 
 
@@ -100,3 +101,18 @@ def metric(pred, true):
     corr = CORR(pred, true)
 
     return mae, mse, rmse, mape, mspe, rse, corr
+
+
+def read_default_args():
+
+    with open("default_args.json", "r") as f:
+        default_args = json.load(f)
+
+    default_args["use_gpu"] = True if torch.cuda.is_available() and default_args["use_gpu"] else False
+    if default_args["use_gpu"] and default_args["use_multi_gpu"]:
+        default_args["devices"] = default_args["devices"].replace(' ', '')
+        device_ids = default_args["devices"].split(',')
+        default_args["device_ids"] = [int(id_) for id_ in device_ids]
+        default_args["gpu"] = default_args["device_ids"][0]
+
+    return default_args
