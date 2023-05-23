@@ -6,6 +6,7 @@ import argparse
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
+from utills import detect_constant_price
 
 
 def json_to_csv(inp_file, output_file):
@@ -36,7 +37,7 @@ def json_to_csv(inp_file, output_file):
     print("csv file saved at {}".format(output_file))
 
 
-def datagen(config_file, split, read_csv, train_split=0.8, val_split=0.1):
+def datagen(config_file, filter, read_csv, train_split=0.8, val_split=0.1):
 
     config = json.load(open(config_file, 'r'))
     data_dir = config['data_dir']
@@ -51,7 +52,7 @@ def datagen(config_file, split, read_csv, train_split=0.8, val_split=0.1):
         json_to_csv(inp_file, output_file)
         return
 
-    if split:
+    if filter:
         # take instrument with all valid date present
         valid_time_start = '09:15:00'
         valid_time_end = '15:29:00'
@@ -74,41 +75,22 @@ def datagen(config_file, split, read_csv, train_split=0.8, val_split=0.1):
         print('size before filtering: {}, instruments: {}'.format(len(df), df['instrument'].nunique()))
         df = df.groupby('instrument').filter(lambda x: x['volume'].sum() != 0)
         print('size of dataframe after filtering: {}, instruments: {}'.format(len(df), df['instrument'].nunique()))
+
+        # drop constant open price instrument completely
+        print('\nfiltering out instruments with constant open price')
+        print('size before filtering: {}, instruments: {}'.format(len(df), df['instrument'].nunique()))
+        df = df.groupby('instrument').filter(lambda x: detect_constant_price(x['open'], duration=3) == True)
+        print('size of dataframe after filtering: {}, instruments: {}'.format(len(df), df['instrument'].nunique()))
+
         df.to_csv(filterd_data, index=False)
-
-        # seperate out end data for test and val as per day basis for each instrument
-        print('\nsplitting the data into train, val and test')
-        # get the unique instruments
-        dates = df['datetime'].dt.date.unique()
-
-        num_days = len(dates)
-        num_train_days = int(num_days * train_split)
-        num_val_days = int(num_days * val_split)
-
-        # get the train, val and test dates
-        train_dates = dates[:num_train_days]
-        val_dates = dates[num_train_days:num_train_days+num_val_days]
-        test_dates = dates[num_train_days+num_val_days:]
-
-        # get the train, val and test dataframes
-        train_df = df[df['datetime'].dt.date.isin(train_dates)]
-        val_df = df[df['datetime'].dt.date.isin(val_dates)]
-        test_df = df[df['datetime'].dt.date.isin(test_dates)]
-
-        # save the train, val and test dataframes
-        train_df.to_csv(os.path.join(data_dir, 'train.csv'), index=False)
-        val_df.to_csv(os.path.join(data_dir, 'val.csv'), index=False)
-        test_df.to_csv(os.path.join(data_dir, 'test.csv'), index=False)
-
-        print('train size: {}, val size: {}, test size: {}'.format(len(train_df), len(val_df), len(test_df)))
 
 
 # write argparse function
 def parse_args():
     parser = argparse.ArgumentParser(description='json to csv')
     parser.add_argument('--config', help='configuration file', required=True)
-    parser.add_argument('--split', help='split the data into train, val and test', default=1, type=int)
-    parser.add_argument('--read_csv', help='read csv file', default=0, type=int)
+    parser.add_argument('--filter', help='split the data into train, val and test', default=1, type=int)
+    parser.add_argument('--read_csv', help='read csv file', default=1, type=int)
     args = parser.parse_args()
     return args
 
@@ -117,7 +99,7 @@ def parse_args():
 if __name__ == '__main__':
 
     args = parse_args()
-    split = args.split
+    filter = args.filter
     config_file = args.config
     read_csv = args.read_csv
-    datagen(config_file, split=split, read_csv=read_csv)
+    datagen(config_file, filter=filter, read_csv=read_csv)

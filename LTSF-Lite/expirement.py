@@ -12,6 +12,8 @@ from dataloader import data_provider
 from utills import EarlyStopping, adjust_learning_rate, metric
 warnings.filterwarnings('ignore')
 
+# from models.wider_dlinear import DLinear
+
 class ExpBasic(object):
     def __init__(self, args):
         self.args = args
@@ -46,7 +48,6 @@ class ExpBasic(object):
         pass
 
 
-
 class ExpMain(ExpBasic):
     def __init__(self, args):
         super().__init__(args)
@@ -54,8 +55,11 @@ class ExpMain(ExpBasic):
     def _build_model(self):
 
         model = DLinear(self.args).float()
+        params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+        print('Total number of parameters is: {}'.format(params))
         if self.args.use_multi_gpu and self.args.use_gpu:
             model = nn.DataParallel(model, device_ids=self.args.device_ids)
+            # print num params
         return model
 
     def _get_data(self, flag):
@@ -97,11 +101,12 @@ class ExpMain(ExpBasic):
         train_data, train_loader = self._get_data(flag='train')
         if not self.args.train_only:
             vali_data, vali_loader = self._get_data(flag='val')
-            test_data, test_loader = self._get_data(flag='test')
 
         path = os.path.join(self.args.checkpoints, setting)
         if not os.path.exists(path):
             os.makedirs(path)
+        else:
+            os.system('rm -rf ' + path + '/*')
 
         train_steps = len(train_loader)
         early_stopping = EarlyStopping(patience=self.args.patience, verbose=True)
@@ -126,18 +131,15 @@ class ExpMain(ExpBasic):
                 loss.backward()
                 model_optim.step()
 
-            print("Epoch: {} cost time: {}".format(epoch + 1, time.time() - epoch_time))
+            print("Epoch: {} | time: {}".format(epoch + 1, time.time() - epoch_time))
             train_loss = np.average(train_loss)
 
             if not self.args.train_only:
                 vali_loss = self.vali(vali_data, vali_loader, criterion)
-                test_loss = self.vali(test_data, test_loader, criterion)
-                print("Epoch: {0}, Steps: {1} | Train Loss: {2:.7f} Vali Loss: {3:.7f} Test Loss: {4:.7f}".format(
-                    epoch + 1, train_steps, train_loss, vali_loss, test_loss))
+                print("Epoch: {0}, Steps: {1} | Train Loss: {2:.7f} Vali Loss: {3:.7f}".format(epoch+1, train_steps, train_loss, vali_loss))
                 early_stopping(vali_loss, self.model, path)
             else:
-                print("Epoch: {0}, Steps: {1} | Train Loss: {2:.7f}".format(
-                    epoch + 1, train_steps, train_loss))
+                print("Epoch: {0}, Steps: {1} | Train Loss: {2:.7f}".format(epoch+1, train_steps, train_loss))
                 early_stopping(train_loss, self.model, path)
 
             if early_stopping.early_stop:
@@ -145,11 +147,6 @@ class ExpMain(ExpBasic):
                 break
 
             adjust_learning_rate(model_optim, epoch + 1, self.args)
-
-        best_model_path = path + '/' + 'checkpoint.pth'
-        self.model.load_state_dict(torch.load(best_model_path))
-
-        return self.model
 
     def test(self, setting, test=0):
         test_data, test_loader = self._get_data(flag='test')
@@ -219,7 +216,6 @@ class ExpMain(ExpBasic):
         with torch.no_grad():
             for i, (batch_x, batch_y) in enumerate(pred_loader):
                 batch_x = batch_x.float().to(self.device)
-                batch_y = batch_y.float()
                 outputs = self.model(batch_x)
                 pred = outputs.detach().cpu().numpy()  # .squeeze()
                 preds.append(pred)

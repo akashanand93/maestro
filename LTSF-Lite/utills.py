@@ -31,7 +31,7 @@ class EarlyStopping:
     def save_checkpoint(self, val_loss, model, path):
         if self.verbose:
             print(f'Validation loss decreased ({self.val_loss_min:.6f} --> {val_loss:.6f}).  Saving model ...')
-        torch.save(model.state_dict(), path + '/' + 'checkpoint.pth')
+        torch.save(model.state_dict(), "{}/checkpoint_{:.4f}.pth".format(path, val_loss))
         self.val_loss_min = val_loss
 
 
@@ -116,3 +116,20 @@ def read_default_args():
         default_args["gpu"] = default_args["device_ids"][0]
 
     return default_args
+
+def detect_constant_price(stock_prices, duration):
+
+    # Create a boolean array which is True where prices are the same as the previous day
+    is_constant = np.diff(stock_prices, prepend=stock_prices[0]) == 0
+
+    # Count how many constant days are before each day
+    constant_days_count = np.cumsum(is_constant) - np.cumsum(np.pad(is_constant[:-duration+1], (duration-1, 0)))
+
+    # Find the first day where there are `duration` constant days before it
+    constant_period_end = np.argmax(constant_days_count >= duration)
+
+    # If there's no period of constant prices long enough, return None
+    if constant_days_count[constant_period_end] < duration:
+        return None
+
+    return constant_period_end - duration + 1, constant_period_end

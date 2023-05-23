@@ -25,15 +25,16 @@ class SeriesDecomp(nn.Module):
     """
     Series decomposition block
     """
-    def __init__(self, kernel_size):
+    def __init__(self, kernel_size1, kernel_size2):
         super(SeriesDecomp, self).__init__()
-        self.moving_avg = MovingAvg(kernel_size, stride=1)
+        self.moving_avg1 = MovingAvg(kernel_size1, stride=1)
+        self.moving_avg2 = MovingAvg(kernel_size2, stride=1)
 
     def forward(self, x):
-        moving_mean = self.moving_avg(x)
-        res = x - moving_mean
-        return res, moving_mean
-
+        moving_mean1 = self.moving_avg1(x)
+        moving_mean2 = self.moving_avg2(x)
+        res = x - moving_mean2 - moving_mean1
+        return res, moving_mean1, moving_mean2
 
 class DLinear(nn.Module):
     """
@@ -43,27 +44,23 @@ class DLinear(nn.Module):
         super().__init__()
         self.seq_len = configs.seq_len
         self.pred_len = configs.pred_len
-        self.decomp_kernal = configs.decomp_kernal
 
         # Decompsition Kernel Size
-        self.decompsition = SeriesDecomp(self.decomp_kernal)
-        self.individual = configs.individual
-        self.channels = configs.enc_in
+        kernel_size = 25
+        self.decompsition = SeriesDecomp(5, 25)
 
-        self.Linear_Seasonal = nn.Linear(self.seq_len, self.pred_len)
-        self.Linear_Trend = nn.Linear(self.seq_len, self.pred_len)
-            
-        # Use this two lines if you want to visualize.py the weights
-        # self.Linear_Seasonal.weight = nn.Parameter((1/self.seq_len)*torch.ones([self.pred_len,self.seq_len]))
-        # self.Linear_Trend.weight = nn.Parameter((1/self.seq_len)*torch.ones([self.pred_len,self.seq_len]))
+        self.Linear_Seasonal1 = nn.Linear(self.seq_len,self.pred_len)
+        self.Linear_Seasonal2 = nn.Linear(self.seq_len, self.pred_len)
+        self.Linear_Trend = nn.Linear(self.seq_len,self.pred_len)
 
     def forward(self, x):
         # x: [Batch, Input length, Channel]
-        seasonal_init, trend_init = self.decompsition(x)
-        seasonal_init, trend_init = seasonal_init.permute(0, 2, 1), trend_init.permute(0, 2, 1)
+        seasonal_init1, seasonal_init2, trend_init = self.decompsition(x)
+        seasonal_init1, seasonal_init2, trend_init = seasonal_init1.permute(0,2,1), seasonal_init2.permute(0,2,1), trend_init.permute(0,2,1)
 
-        seasonal_output = self.Linear_Seasonal(seasonal_init)
+        seasonal_output1 = self.Linear_Seasonal1(seasonal_init1)
+        seasonal_output2 = self.Linear_Seasonal2(seasonal_init2)
         trend_output = self.Linear_Trend(trend_init)
 
-        x = seasonal_output + trend_output
-        return x.permute(0, 2, 1) # to [Batch, Output length, Channel]
+        x = trend_output + seasonal_output1 + seasonal_output2
+        return x.permute(0,2,1) # to [Batch, Output length, Channel]
