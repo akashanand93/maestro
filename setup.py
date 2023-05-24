@@ -6,7 +6,8 @@ setup(
     packages=find_packages(),
     install_requires=[
         # Add your project's dependencies here, e.g.,
-        'kiteconnect'
+        'kiteconnect',
+        'python-dotenv'
     ],
     extras_require={
         # Add optional dependencies and their versions here, e.g.,
