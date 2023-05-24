@@ -1,7 +1,5 @@
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
-import sys
-sys.path.append("/Users/akashanand/repo/marketmaestro")
 
 
 import datetime  # For datetime objects
@@ -27,7 +25,7 @@ if __name__ == '__main__':
 
     # Create a Data Feed
     data = CustomDataFeed(
-        dataname="/Users/akashanand/repo/marketmaestro/maestro/infra/data/backtrader/1675521.csv", 
+        dataname="/Users/akashanand/repo/marketmaestro/maestro/maestro/infra/data/backtrader/1675521.csv", 
         name="1675521")
 
     # Add the Data Feed to Cerebro
