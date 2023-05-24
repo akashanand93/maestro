@@ -18,11 +18,6 @@ if __name__ == '__main__':
 
     cerebro.addstrategy(DummyStrategy)
 
-    # Datas are in a subfolder of the samples. Need to find where the script is
-    # because it could have been called from anywhere
-    modpath = os.path.dirname(os.path.abspath(sys.argv[0]))
-    datapath = os.path.join(modpath, '../../datas/orcl-1995-2014.txt')
-
     # Create a Data Feed
     data = CustomDataFeed(
         dataname="/Users/akashanand/repo/marketmaestro/maestro/maestro/infra/data/backtrader/1675521.csv", 
