@@ -17,16 +17,19 @@ class Transoform(object):
         self.channel = channel
         config = json.load(open(config_file, 'r'))
         self.data_dir = config['data_dir']
-        self.inp_data = "{}/{}".format(self.data_dir, config['filterd_data'])
+        self.inp_data = "{}/{}".format(self.data_dir, config['raw_data_csv'])
         self.transform_map = {'ltsf': self.ltsf, 'backtrader': self.backtrader}
         self.all_channels = ['open', 'high', 'low', 'close', 'volume']
 
     def ltsf(self):
 
-        inp_df = pd.read_csv(self.inp_data, parse_dates=['datetime'], usecols=['instrument', 'datetime'].append(channel))
-        df_pivot = inp_df.pivot(index='datetime', columns='instrument', values=self.channel)
-        df_pivot.reset_index(level=0, inplace=True)
-        df_pivot.to_csv("{}/{}".format(self.data_dir, 'ltsf.csv'), index=False)
+        for file in os.listdir(self.inp_data):
+            cols = pd.read_csv("{}/{}".format(self.inp_data, file)).columns
+            desired_cols = [i for i in cols if i.endswith(self.channel)] + ['date']
+            df = pd.read_csv("{}/{}".format(self.inp_data, file), usecols=desired_cols)
+            # rename xyz_<channel> columns to xyz
+            df.columns = [i.split('_')[0] if i.endswith(self.channel) else i for i in df.columns]
+            df.to_csv("{}/ltsf/{}".format(self.data_dir, file), index=False)
 
     def backtrader(self):
 
@@ -51,7 +54,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='json to csv')
     parser.add_argument('--config', help='configuration file', required=True)
     parser.add_argument('--trans_typ', help='type of transform', default='ltsf')
-    parser.add_argument('--channel', help='channel to consider', default='open')
+    parser.add_argument('--channel', help='channel to consider', default='avg')
     args = parser.parse_args()
     return args
 
@@ -65,7 +68,3 @@ if __name__ == '__main__':
     channel = args.channel.lower()
     transform = Transoform(config_file, channel=channel)
     transform.transform_map[trans_typ]()
-
-
-
-

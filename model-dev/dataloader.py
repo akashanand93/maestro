@@ -27,8 +27,8 @@ class Dataset_Custom(Dataset):
 
         self.scaler = StandardScaler()
         df_data = pd.read_csv(os.path.join(self.root_path, self.data_path))
-        date_col = list(df_data['datetime'])
-        df_data.drop(columns=['datetime'], inplace=True)
+        date_col = list(df_data['date'])
+        df_data.drop(columns=['date'], inplace=True)
 
         num_train = int(len(df_data) * (0.7 if not self.train_only else 1))
         num_test = int(len(df_data) * 0.2)
