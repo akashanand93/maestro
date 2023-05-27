@@ -1,7 +1,7 @@
 {
   "data_dir": "/Users/shiva/Desktop/data_maestro/",
-  "raw_data": "data.json",
-  "raw_data_csv": "data.csv",
+  "raw_data_dir": "raw_data",
+  "raw_data_csv": "raw_csv",
   "filterd_data": "filtered_data.csv",
   "stock_meta": "instruments.json"
 }
