@@ -1,9 +1,10 @@
 from kiteconnect import KiteConnect
 import logging
+import os
 
 # Some setting up
-API_KEY = '9kxpk63gv7k76agn'
-API_SECRET = 'zkgtjepzhmwrmpd9rmhgecoeuntxfk54'
+API_KEY = os.environ.get("KITE_API_KEY")
+API_SECRET = os.environ.get("KITE_API_SECRET")
 
 class KiteConnector(object):
     def __init__(self):

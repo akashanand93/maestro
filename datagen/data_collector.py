@@ -9,9 +9,9 @@ from datetime import datetime
 
 # get the parent to parent directry of this script
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from maestro.connector.kite_connector import KiteConnector
-from maestro.historical.fetch_historical_data import HistoricalDataFetcher, Interval, get_today, get_date_before_today
-from maestro.instruments.kite_instruments import TradingInstruments, ExchangeType
+from maestro.kite.connector.kite_connector import KiteConnector
+from maestro.kite.historical.fetch_historical_data import HistoricalDataFetcher, Interval, get_today, get_date_before_today
+from maestro.kite.instruments.kite_instruments import TradingInstruments, ExchangeType
 
 class DateTimeEncoder(json.JSONEncoder):
     def default(self, o):
