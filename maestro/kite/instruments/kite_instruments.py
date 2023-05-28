@@ -1,5 +1,5 @@
 # Class to get all trading instruments either from the kite API or from the json file saved in data folder
-from maestro.connector.kite_connector import KiteConnector
+from maestro.kite.connector.kite_connector import KiteConnector
 import enum
 import logging
 import json

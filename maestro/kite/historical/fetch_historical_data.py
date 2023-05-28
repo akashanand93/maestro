@@ -1,4 +1,4 @@
-from maestro.connector.kite_connector import KiteConnector
+from maestro.kite.connector.kite_connector import KiteConnector
 import datetime
 import enum
 import logging
