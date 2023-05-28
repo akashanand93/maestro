@@ -65,6 +65,10 @@ def datagen(config_file, date):
                 merged_df = pd.merge(merged_df, df, on='date', how='outer')
 
         merged_df = merged_df.sort_values(by=['date'])
+        for col in merged_df.columns:
+            if col != 'date':
+                merged_df[col] = merged_df[col].astype('float32')
+
         print("Merged DFs, Shape: {}".format(merged_df.shape))
         merged_df.to_csv("{}/{}.csv".format(out_dir, date), index=False)
 

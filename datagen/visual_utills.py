@@ -82,18 +82,17 @@ class VisualizeData:
         self.col_volume_map = property_map(df, self.cols, sort_by, reverse)
         self.day_list = create_day_list(df)
 
-    def craete_title(self, col):
+    def craete_title(self, idx, col):
 
         name = self.instrumen_config.get(int(col), {}).get('name', 'Unknown')
 
-        title = "\n{} | {}".format(name, col)
+        title = "\n {} | {} | {}".format(idx, name, col)
         if self.sort_by:
             title += " | {}: {}".format(beautify_str(self.sort_by), self.col_volume_map[col][self.sort_by])
         title += "\n\n"
 
         for k, v in self.col_volume_map[col].items():
-            if k != 'missing_values':
-                title += "{}: {} | ".format(beautify_str(k), v)
+            title += "{}: {} | ".format(beautify_str(k), v)
         title = title.strip(' | ')
         return title
 
@@ -112,7 +111,7 @@ class VisualizeData:
             sample_count += 1
             fig, ax = plt.subplots(); fig.set_size_inches(18, 4.5); ax.tick_params(axis='y', colors='black')
             ax.plot(self.df['{}_avg'.format(col)].to_list())
-            ax.set_title(self.craete_title(col), fontsize=16, y=1.025, color='black')
+            ax.set_title(self.craete_title(i, col), fontsize=15, y=1.025, color='black')
 
             if day_separation:
                 # plot vertical lines for each beginning of the day
