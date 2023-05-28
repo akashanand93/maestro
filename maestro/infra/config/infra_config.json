@@ -5,12 +5,13 @@
         "instrument_token": 738561,
         "interval": "minute",
         "start_date": "",
-        "end_date": ""
+        "end_date": "",
+        "file_directory": "/Users/akashanand/repo/marketmaestro/maestro/data/backtrader/"
     },
     "commission": {
         "type": "kite_platform"
     },
     "strategy": {
-        "type": "dummy_startegy"
+        "type": "dummy"
     }
 }
