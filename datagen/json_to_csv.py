@@ -34,34 +34,46 @@ def json_to_df(instrument, data):
 
 def datagen(config_file, date):
 
-    merged_df = pd.DataFrame()
     config = json.load(open(config_file, 'r'))
     base_dir = config['data_dir']
     inp_dir = "{}/{}".format(base_dir, config['raw_data_dir'])
     out_dir = "{}/{}".format(base_dir, config['raw_data_csv'])
-    files = [i for i in os.listdir(inp_dir) if i.split('.')[0].endswith(date)]
 
-    for file in tqdm(files):
-        instrument = file.split('.')[0].split('_')[0]
-        json_data = json.load(open("{}/{}".format(inp_dir, file), 'r'))
-        if len(json_data) < 10000:
-            continue
-        df = json_to_df(instrument, json_data)
-        if merged_df.empty:
-            merged_df = df
-        else:
-            merged_df = pd.merge(merged_df, df, on='date', how='outer')
+    if not date:
+        # file names are like <stock>_03_23.json, find out all the unique dates like `03_23`
+        all_dates = set(['_'.join(i.split('.')[0].split('_')[1:]) for i in os.listdir(inp_dir)])
+        print("Dates found: {}".format(all_dates))
+    else:
+        all_dates = [date]
 
-    merged_df = merged_df.sort_values(by=['date'])
-    print("Merged DFs, Shape: {}".format(merged_df.shape))
-    merged_df.to_csv("{}/{}.csv".format(out_dir, date), index=False)
+    for date in all_dates:
+
+        print("--------------Processing date: {}------------\n".format(date))
+
+        merged_df = pd.DataFrame()
+        files = [i for i in os.listdir(inp_dir) if i.split('.')[0].endswith(date)]
+
+        for file in tqdm(files):
+            instrument = file.split('.')[0].split('_')[0]
+            json_data = json.load(open("{}/{}".format(inp_dir, file), 'r'))
+            if len(json_data) < 10000:
+                continue
+            df = json_to_df(instrument, json_data)
+            if merged_df.empty:
+                merged_df = df
+            else:
+                merged_df = pd.merge(merged_df, df, on='date', how='outer')
+
+        merged_df = merged_df.sort_values(by=['date'])
+        print("Merged DFs, Shape: {}".format(merged_df.shape))
+        merged_df.to_csv("{}/{}.csv".format(out_dir, date), index=False)
 
 
 # write argparse function
 def parse_args():
     parser = argparse.ArgumentParser(description='json to csv')
     parser.add_argument('--config', help='configuration file', required=True)
-    parser.add_argument('--date', required=True)
+    parser.add_argument('--date', required=False, default=None, help='date files to be processed, if not provided, all dates will be processed')
     args = parser.parse_args()
     return args
 

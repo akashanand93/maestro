@@ -28,7 +28,7 @@ def collect(raw_data, total_days, days_per_file):
     history_fetcher = HistoricalDataFetcher(connector)
 
     to_date = get_today()
-    for i in range(days_per_file, total_days, days_per_file):
+    for i in range(days_per_file, total_days+days_per_file, days_per_file):
 
         from_date = get_date_before_today(i)
         flag = 0
