@@ -4,7 +4,7 @@ import os
 
 # Some setting up
 API_KEY = os.environ.get("KITE_API_KEY")
-API_SECRET = os.environ.get("KITE_API_SECRET")
+API_SECRET = os.environ.get("KITE_SECRET_KEY")
 
 class KiteConnector(object):
     def __init__(self):

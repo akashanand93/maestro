@@ -7,6 +7,7 @@ load_dotenv()
 
 
 from maestro.infra.data_feed.custom_csv import CustomDataFeed
+from maestro.infra.data_feed.kite_historical import ZerodhaHistoricalData
 from maestro.infra.strategies.dummy_strategy import DummyStrategy
 from maestro.infra.commission.kite_platform import ZerodhaCommission
 import datetime
