@@ -21,14 +21,24 @@ class Transoform(object):
         self.transform_map = {'ltsf': self.ltsf, 'backtrader': self.backtrader}
         self.all_channels = ['open', 'high', 'low', 'close', 'volume']
 
-    def ltsf(self):
+    def ltsf(self, nan_threshold=0.97):
 
         for file in os.listdir(self.inp_data):
+
+            print("\n-------------Processing file: {}------------\n".format(file))
             cols = pd.read_csv("{}/{}".format(self.inp_data, file)).columns
             desired_cols = [i for i in cols if i.endswith(self.channel)] + ['date']
             df = pd.read_csv("{}/{}".format(self.inp_data, file), usecols=desired_cols)
             # rename xyz_<channel> columns to xyz
             df.columns = [i.split('_')[0] if i.endswith(self.channel) else i for i in df.columns]
+
+            print("Dropping columns where values more than {}%, shape: {}".format(nan_threshold * 100, df.shape))
+            df.dropna(axis=1, thresh=int(df.shape[0] * nan_threshold), inplace=True)
+            print("After dropping columns, shape: {}".format(df.shape))
+
+            print("Interpolating remaining NaNs, Nan count: {}".format(df.isnull().sum().sum()))
+            df = df.interpolate(method='linear', axis=0, limit_direction='both')
+            print("After Interpolation, Nan count: {}".format(df.isnull().sum().sum()))
             df.to_csv("{}/ltsf/{}".format(self.data_dir, file), index=False)
 
     def backtrader(self):
