@@ -31,7 +31,8 @@ def get_data_feed(config, connector=None):
                                      from_date = start_date,
                                      to_date = end_date)
     elif data_feed_type == 'csv_file':
-        return CustomDataFeed(config['file_path'], config['name'])
+        return CustomDataFeed(dataname = config['file_directory'] + str(instrument_token) + ".csv", 
+                              name = str(instrument_token))
     else:
         raise ValueError("Invalid data feed type: {}, Allowed types: ".format(data_feed_type, 
                                                                               permissible_data_feed_types))
@@ -49,7 +50,7 @@ def get_strategy(config):
     permissible_strategy_types = ['dummy']
     strategy_type = config['type']
     if strategy_type == 'dummy':
-        return DummyStrategy()
+        return DummyStrategy
     else:
         raise ValueError("Invalid strategy type: {}, Allowed types: ".format(strategy_type, 
                                                                               permissible_strategy_types))
