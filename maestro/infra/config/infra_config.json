@@ -1,0 +1,16 @@
+{
+    "initial_cash": 100000,
+    "data_feed": {
+        "type": "kite_historical",
+        "instrument_token": 738561,
+        "interval": "minute",
+        "start_date": "",
+        "end_date": ""
+    },
+    "commission": {
+        "type": "kite_platform"
+    },
+    "strategy": {
+        "type": "dummy_startegy"
+    }
+}
