@@ -24,7 +24,7 @@ setup(
     author="Akash Anand",
     author_email="akashanand.iitd@gmail.com",
     description="The maestro package",
-    long_description=open("../README.md", "r").read(),
+    long_description=open("README.md", "r").read(),
     long_description_content_type="text/markdown",
     url="https://github.com/MarketMaestro/maestro",
     license="MIT",
