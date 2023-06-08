@@ -7,11 +7,10 @@ import torch
 import numpy as np
 import pandas as pd
 import torch.nn as nn
-from models import dlinear
-from decider import Decider
 import matplotlib.pyplot as plt
-from dataloader import data_provider
+from model_dev.dataloader import data_provider
 from datetime import datetime
+from model_dev.utills import load_model
 from sklearn.preprocessing import StandardScaler
 
 
@@ -38,7 +37,8 @@ class StockPicker:
 
         # load model and weights
         self.checkpoint_path = os.path.join(args.checkpoints, setting, weights)
-        self.model = dlinear.DLinear(self.config)
+        Model = load_model(args.model)
+        self.model = Model(self.config)
         self.model.load_state_dict(torch.load(self.checkpoint_path))
         print("Load model from {}".format(self.checkpoint_path))
 
@@ -48,10 +48,9 @@ class StockPicker:
         # scaler for inverse transform
         self.scaler = StandardScaler()
 
-    def pick_stocks(self, stocks, k, step=4):
+    def pick_stocks(self, step=4, sort_by='loss_mean'):
 
         best_stocks = []
-        num_stocks = len(stocks)
         loss_list = []
 
         for i in range(0, len(self.dataloader), step):
@@ -65,18 +64,24 @@ class StockPicker:
             y_pred = np.transpose(y_pred)
 
             loss = loss_fn(torch.from_numpy(y_pred), torch.from_numpy(y))
-            loss = torch.mean(loss, dim=1)[stocks]
-            loss_list.append(loss.numpy().tolist())
+            loss = torch.mean(loss, dim=1)
+            # select loss for given stocks
 
-        loss_list = np.array(loss_list)
-        print(loss_list.shape)
-        #     loss_list += loss.numpy()
-        #
-        # # create a mapping between stock name and loss
-        # loss_dict = dict(zip(stocks, loss_list))
-        # # sort the loss dict
-        # loss_dict = {k: v for k, v in sorted(loss_dict.items(), key=lambda item: item[1])}
-        # # pick top k stocks
-        # best_stocks = list(loss_dict.keys())[:k]
-        #
-        # return best_stocks
+            loss_list.append(loss.numpy())
+
+        loss_list = np.array(loss_list) # shape is time_step*stock_num
+        # reverse the loss list to be shape of stock_num*time_step
+        loss_list = np.transpose(loss_list)
+
+        mean_loss_list = np.mean(loss_list, axis=1)
+        std_loss_list = np.std(loss_list, axis=1)
+
+        # create a dict, where key is stock and value is a map containg mean and std
+        loss_dict = {}
+        for i in range(len(mean_loss_list)):
+            loss_dict[i] = {'loss_mean': mean_loss_list[i], 'loss_std': std_loss_list[i]}
+
+        # sort the dict by loss_mean
+        sorted_loss_dict = sorted(loss_dict.items(), key=lambda x: x[1][sort_by], reverse=False)
+        # return stock names
+        return sorted_loss_dict

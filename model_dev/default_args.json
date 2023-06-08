@@ -44,5 +44,7 @@
    "gpu": 0,
    "use_multi_gpu": false,
    "devices": "0,1,2,3",
-   "test_flop": false
+   "test_flop": false,
+   "instrument_file": "instruments.json",
+   "decomp_kernal": 25
 }

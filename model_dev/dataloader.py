@@ -1,16 +1,16 @@
 import os
 import warnings
 import pandas as pd
-from utills import detect_constant_price
 from torch.utils.data import Dataset, DataLoader
 from sklearn.preprocessing import StandardScaler
 warnings.filterwarnings('ignore')
 
 
 class Dataset_Custom(Dataset):
-    def __init__(self, root_path, size, flag='train', data_path=None, train_only=False, return_date=False):
+    def __init__(self, root_path, size, flag='train', data_path=None, train_only=False, return_date=False, data_segment=None):
 
         self.return_date = return_date
+        self.data_segment = data_segment
         self.seq_len, self.pred_len = size[0], size[1]
 
         assert flag in ['train', 'test', 'val']
@@ -26,8 +26,27 @@ class Dataset_Custom(Dataset):
     def __read_data__(self):
 
         self.scaler = StandardScaler()
-        df_data = pd.read_csv(os.path.join(self.root_path, self.data_path))
+        if not ',' in self.data_path:
+            df_data = pd.read_csv(os.path.join(self.root_path, self.data_path))
+        else:
+            files = self.data_path.split(',')
+            # read all the files as df and stack them vertically
+            df_data = pd.concat([pd.read_csv(os.path.join(self.root_path, f)) for f in files], axis=0)
+            # drop any column containing nan
+            df_data.dropna(axis=1, inplace=True)
+            # dump this combined data
+            df_data.to_csv(os.path.join(self.root_path, self.data_path), index=False)
+        # print("Data shape:", df_data.shape)
+
+        if self.data_segment is not None:
+            df_data = df_data[int(len(df_data) * self.data_segment[0]):int(len(df_data) * self.data_segment[1])]
+
         date_col = list(df_data['date'])
+
+        market_open_time = '09:15:00'
+        market_close_time = '15:29:00'
+        
+
         df_data.drop(columns=['date'], inplace=True)
 
         num_train = int(len(df_data) * (0.7 if not self.train_only else 1))
@@ -46,8 +65,9 @@ class Dataset_Custom(Dataset):
         self.data_y = data[border1:border2]
         self.date_col = date_col[border1:border2]
 
-    def __getitem__(self, index):
 
+    def __getitem__(self, index):
+        
         s_begin = index
         s_end = s_begin + self.seq_len
         r_begin = s_end
@@ -69,7 +89,6 @@ class Dataset_Custom(Dataset):
     def inverse_transform(self, data):
         return self.scaler.inverse_transform(data)
 
-
 def data_provider(args, flag, return_date=False):
 
     Data = Dataset_Custom
@@ -83,7 +102,9 @@ def data_provider(args, flag, return_date=False):
         shuffle_flag = True
 
     data_set = Data(root_path=args.root_path, data_path=args.data_path, flag=flag,
-                    size=[args.seq_len, args.pred_len], train_only=train_only, return_date=return_date)
+                    size=[args.seq_len, args.pred_len], train_only=train_only, return_date=return_date,
+                    data_segment=args.data_segment)
     print(flag, len(data_set))
-    data_loader = DataLoader(data_set, batch_size=batch_size, shuffle=shuffle_flag, num_workers=args.num_workers, drop_last=drop_last)
+    data_loader = DataLoader(data_set, batch_size=batch_size, shuffle=shuffle_flag, num_workers=args.num_workers,
+                             drop_last=drop_last)
     return data_set, data_loader

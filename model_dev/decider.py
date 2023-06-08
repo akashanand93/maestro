@@ -5,7 +5,7 @@ import numpy as np
 
 class Decider:
 
-    def __init__(self, cutoff_deviation, seq_len, pred_len, funds=100000, min_cutoff=2, cutoff_len=None, log=False):
+    def __init__(self, cutoff_deviation, seq_len, pred_len, funds=100000, min_cutoff=0, cutoff_len=None, log=False):
 
         self.log = log
         self.funds = funds
@@ -17,19 +17,25 @@ class Decider:
         if not cutoff_len:
             self.cutoff_len = pred_len
 
-    def decide(self, pred, true, last_price):
+    def decide(self, pred, true, last_price, startegy='last_price'):
 
         num_stock = self.funds // last_price
 
-        # calculate the diff between current price and max price of pred in percentage
-        max_diff = (np.max(pred) - last_price)
-        min_diff = (np.min(pred) - last_price)
-
-        action = "sell"
-        target_price = np.min(pred)
-        if abs(max_diff) > abs(min_diff):
-            action = "buy"
-            target_price = (np.max(pred))
+        if startegy == 'min_max':
+            max_diff = (np.max(pred) - last_price)
+            min_diff = (np.min(pred) - last_price)
+            action = "sell"
+            target_price = np.min(pred)
+            if abs(max_diff) > abs(min_diff):
+                action = "buy"
+                target_price = (np.max(pred))
+        elif startegy == 'last_price':
+            action = "sell"
+            target_price = pred[-1]
+            if pred[-1] > last_price:
+                action = "buy"
+        else:
+            raise ValueError("startegy must be one of 'min_max' or 'last_price'")
 
         expected_profit = abs(target_price - last_price) * num_stock
 
