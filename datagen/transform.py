@@ -21,24 +21,42 @@ class Transoform(object):
         self.transform_map = {'ltsf': self.ltsf, 'backtrader': self.backtrader}
         self.all_channels = ['open', 'high', 'low', 'close', 'volume']
 
-    def ltsf(self, nan_threshold=0.97):
+    def ltsf(self, nan_threshold=0.97, mean_thresh_price=5, mean_trade_thresh=1000000):
 
         for file in os.listdir(self.inp_data):
 
             print("\n-------------Processing file: {}------------\n".format(file))
             cols = pd.read_csv("{}/{}".format(self.inp_data, file)).columns
-            desired_cols = [i for i in cols if i.endswith(self.channel)] + ['date']
-            df = pd.read_csv("{}/{}".format(self.inp_data, file), usecols=desired_cols)
+            price_cols = [i for i in cols if i.endswith(self.channel)]
+            vol_cols = [i for i in cols if i.endswith('volume')]
+            df = pd.read_csv("{}/{}".format(self.inp_data, file), usecols=price_cols + vol_cols + ['date'])
+
+            # create list ofcolumns wihtout channel
+            cols = [i.split('_')[0] for i in price_cols]
+            cols_to_drop = []
+            for col in cols:
+                mean_trade_value = df['{}_volume'.format(col)].mean() * df['{}_avg'.format(col)].mean()
+                if mean_trade_value <= mean_trade_thresh:
+                    cols_to_drop.append(col)
+
+            # drop all volumne columns
+            df.drop(columns=vol_cols, inplace=True)
+            # drop cols_to_drop with channel
+            print("Dropping low trade columns, current shape: {}".format(df.shape))
+            df.drop(columns=["{}_{}".format(i, self.channel) for i in cols_to_drop], inplace=True)
+
             # rename xyz_<channel> columns to xyz
             df.columns = [i.split('_')[0] if i.endswith(self.channel) else i for i in df.columns]
 
-            print("Dropping columns where values more than {}%, shape: {}".format(nan_threshold * 100, df.shape))
+            print("Dropping high nan columns, current shape: {}".format(df.shape))
             df.dropna(axis=1, thresh=int(df.shape[0] * nan_threshold), inplace=True)
-            print("After dropping columns, shape: {}".format(df.shape))
 
-            print("Interpolating remaining NaNs, Nan count: {}".format(df.isnull().sum().sum()))
+            print("Dropping low price columns, current shape: {}".format(df.shape))
+            df = df.drop([i for i in df.columns if df[i].dtype == np.float64 and df[i].mean() <= mean_thresh_price], axis=1)
+
+            print("Interpolating remaining NaNs, current nan count: {}".format(df.isnull().sum().sum()))
             df = df.interpolate(method='linear', axis=0, limit_direction='both')
-            print("After Interpolation, Nan count: {}".format(df.isnull().sum().sum()))
+            print("Final shape: {}".format(df.shape))
             df.to_csv("{}/ltsf/{}".format(self.data_dir, file), index=False)
 
     def backtrader(self):

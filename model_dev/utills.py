@@ -3,6 +3,21 @@ import json
 import numpy as np
 
 
+def load_model(model_name):
+
+    if model_name == 'dlinear':
+        from model_dev.models.dlinear import Model
+    elif model_name == 'nlinear':
+        from model_dev.models.nlinear import Model
+    elif model_name == 'nlinear_attention':
+        from model_dev.models.nlinear_attention import Model
+    elif model_name == 'dlinear_attention':
+        from model_dev.models.dlinear_attention import Model    
+    else:
+        raise NotImplementedError
+    return Model
+
+
 class EarlyStopping:
     def __init__(self, patience=7, verbose=False, delta=0):
         self.patience = patience
@@ -105,7 +120,7 @@ def metric(pred, true):
 
 def read_default_args():
 
-    with open("default_args.json", "r") as f:
+    with open("/Users/shiva/Desktop/maestro/model_dev/default_args.json", "r") as f:
         default_args = json.load(f)
 
     default_args["use_gpu"] = True if torch.cuda.is_available() and default_args["use_gpu"] else False

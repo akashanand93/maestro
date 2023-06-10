@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 date_format = "%Y-%m-%d %H:%M:%S"
 days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
-sort_by_options = ['mean_vol', 'mean_price', 'mean_trade_value', 'price_std', 'vol_std', 'missing_values']
+sort_by_options = ['mean_vol', 'mean_price', 'mean_trade_value', 'price_std', 'vol_std', 'missing_values', 'price_cv', 'vol_cv']
 
 
 def property_map(df, cols, sort_by, reverse):
@@ -27,8 +27,12 @@ def property_map(df, cols, sort_by, reverse):
         mean_trade_value = int(mean_vol * mean_price)
         price_std = round(df[price_col].std(), 2)
         vol_std = round(df[vol_col].std(), 2)
+        price_cv = round(price_std*100 / mean_price, 2)
+        vol_cv = round(vol_std*100 / mean_vol, 2)
         missing_values = df[vol_col].isnull().sum()
-        col_volume_map[col] = {'mean_vol': mean_vol, 'mean_price': mean_price, 'mean_trade_value': mean_trade_value, 'price_std': price_std, 'vol_std': vol_std, 'missing_values': missing_values}
+        col_volume_map[col] = {'mean_vol': mean_vol, 'mean_price': mean_price, 'mean_trade_value': mean_trade_value,
+                               'price_std': price_std, 'vol_std': vol_std, 'missing_values': missing_values,
+                               'price_cv': price_cv, 'vol_cv': vol_cv}
 
     if sort_by:
         col_volume_map = {k: v for k, v in sorted(col_volume_map.items(), key=lambda item: item[1][sort_by], reverse=reverse)}
@@ -60,7 +64,7 @@ def beautify_str(str):
 
 class VisualizeData:
 
-    def __init__(self, config, df, sort_by=None, reverse=False):
+    def __init__(self, config, df, sort_by=None, reverse=False, ltsf_file=None):
 
         self.df = df
         self.sort_by = sort_by
@@ -69,6 +73,10 @@ class VisualizeData:
         self.raw_dir = "{}/{}".format(self.data_dir, self.config['raw_data_dir'])
         self.csv_dir = "{}/{}".format(self.data_dir, self.config['raw_data_csv'])
         self.ltsf = "{}/ltsf".format(self.data_dir)
+
+        self.ltsf_file = ltsf_file
+        if ltsf_file:
+            self.ltsf_columns = pd.read_csv("{}/{}.csv".format(self.ltsf, ltsf_file), nrows=1).columns
 
         # load instrument meta
         instrument_file = "{}/{}".format(self.data_dir, self.config['stock_meta'])
@@ -92,14 +100,18 @@ class VisualizeData:
         title += "\n\n"
 
         for k, v in self.col_volume_map[col].items():
-            title += "{}: {} | ".format(beautify_str(k), v)
+            if not k.endswith('std'):
+                title += "{}: {} | ".format(beautify_str(k), v)
         title = title.strip(' | ')
         return title
 
-    def plot(self, day_separation=True, samples=None, name_start=None):
+    def plot(self, day_separation=True, samples=None, name_start=None, segment=None):
 
         sample_count = 0
         for i, col in enumerate(self.col_volume_map):
+
+            if self.ltsf_file and col not in self.ltsf_columns:
+                continue
 
             name = self.instrumen_config.get(int(col), {}).get('name', 'Unknown')
             if name_start and not name.startswith(name_start):
@@ -108,14 +120,20 @@ class VisualizeData:
             if samples and sample_count >= samples:
                 break
 
+            price_array = self.df['{}_avg'.format(col)].to_numpy()
+            day_list = self.day_list
+            if segment:
+                price_array = price_array[segment[0]:segment[1]]
+                day_list = day_list[segment[0]:segment[1]]
+
             sample_count += 1
             fig, ax = plt.subplots(); fig.set_size_inches(18, 4.5); ax.tick_params(axis='y', colors='black')
-            ax.plot(self.df['{}_avg'.format(col)].to_list())
-            ax.set_title(self.craete_title(i, col), fontsize=15, y=1.025, color='black')
+            ax.plot(price_array)
+            ax.set_title(self.craete_title(sample_count, col), fontsize=15, y=1.025, color='black')
 
             if day_separation:
                 # plot vertical lines for each beginning of the day
-                for i in range(1, len(self.day_list)):
+                for i in range(1, len(day_list)):
                     if self.day_list[i - 1] != self.day_list[i]:
                         ax.axvline(x=i, color='red', linestyle='--', linewidth=0.6)
                         ax.text(i, 0.02, self.day_list[i], transform=ax.get_xaxis_transform(), rotation=0, size=10, color='green')

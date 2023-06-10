@@ -5,11 +5,11 @@ import torch
 import numpy as np
 import pandas as pd
 import torch.nn as nn
-from models import dlinear
 from decider import Decider
 import matplotlib.pyplot as plt
 from dataloader import data_provider
 from datetime import datetime
+from utills import load_model
 from sklearn.preprocessing import StandardScaler
 
 
@@ -23,24 +23,63 @@ def draw_barchart_single(profits, day_times):
     # create a vertical line at start of the each day in plot
     for i in range(1, len(day_times)):
         if day_times[i-1].split()[2].split('|')[-1] != day_times[i].split()[2].split('|')[-1]:
-            ax.axvline(x=i, color='k', linestyle='--', linewidth=1)
-            ax.text(i, 0.9, day_times[i].split()[2].split('|')[-1], transform=ax.get_xaxis_transform(), rotation=90, size=12)
+            ax.axvline(x=i, color='red', linestyle='--', linewidth=0.6)
+            ax.text(i, 0.02, day_times[i].split()[2].split('|')[-1], transform=ax.get_xaxis_transform(), rotation=0, size=10, color='green')
 
     for i in range(1, len(day_times)):
         if day_times[i-1].split()[3].split('|')[-1] != day_times[i].split()[3].split('|')[-1]:
-            ax.axvline(x=i, color='k', linestyle='--', linewidth=1)
-            ax.text(i, 0.9, day_times[i].split()[3].split('|')[-1], transform=ax.get_xaxis_transform(), rotation=90, size=12)
+            ax.axvline(x=i, color='red', linestyle='--', linewidth=0.6)
+            ax.text(i, 0.02, day_times[i].split()[3].split('|')[-1], transform=ax.get_xaxis_transform(), rotation=0, size=10, color='green')
 
     ax.set_title("Profits by Day-Time")
-    ax.set_xlabel("Day-Time")
     ax.set_ylabel("Profits")
+    ax.set_xticks([])
     plt.xticks(rotation=90)
     plt.show()
 
 
-title_fields = ['exchange', 'name']
+def draw_barchart(args, setting, points_per_page, step, min_cutoff=0, w_idx=0, mode='test', stocks=np.arange(0, 319)):
 
-loss_fn = nn.MSELoss()
+    mode_points = {'test': 2761, 'val': 1300}
+    datapoints = mode_points[mode]
+
+    weights = os.listdir("{}/{}".format(args.checkpoints, setting))
+    sorted_weights = sorted(weights, key=lambda x: float(x.replace('checkpoint_', '').replace('.pth', '')),
+                            reverse=True)
+
+    vis = Visualize(args, mode=mode, setting=setting, weights=sorted_weights[w_idx], title_meta=1, decision_log=0,
+                    min_cutoff=min_cutoff)
+    profit_list = []
+    date_list = []
+    fund_utilization = 0
+    total_transactions = 0
+    total_commision = 0
+
+    for i in range(0, datapoints, step):
+        profit, date_info, fund_utilized, transactions, commision = vis.plot(i, stocks, plot=0, print_net_profit=0)
+        profit_list.append(profit)
+        date_list.append('|'.join(date_info))
+        fund_utilization += fund_utilized
+        total_transactions += transactions
+        total_commision += commision
+
+    print("Fund utilization: {}, Net profit: {}".format(int(fund_utilization), sum(profit_list)))
+    growth = round((sum(profit_list) / fund_utilization) * 100, 4)
+    print("Growth: {}%".format(growth))
+    print("Total transactions: {}".format(total_transactions))
+    print("Total commision: {:d}".format(int(total_commision)))
+
+    datapoints = datapoints // step
+
+    if points_per_page == -1:
+        points_per_page = datapoints
+
+    pages = datapoints // points_per_page + int((datapoints % points_per_page > 0))
+    for i in range(pages):
+        start = i * points_per_page
+        end = (i + 1) * points_per_page
+        draw_barchart_single(profit_list[start:end], date_list[start:end])
+
 
 def convert_date_format(date_string):
 
@@ -58,7 +97,10 @@ class Config:
 
 class Visualize:
 
-    def __init__(self, args, setting, weights, mode='train', title_meta=True, decision_log=False):
+    def __init__(self, args, setting, weights, mode='train', title_meta=True, decision_log=False, min_cutoff=0):
+
+        self.title_fields = ['exchange', 'name']
+        self.loss_fn = nn.MSELoss()
 
         self.mode = mode
         self.title_meta = title_meta
@@ -70,18 +112,16 @@ class Visualize:
 
         # load model and weights
         self.checkpoint_path = os.path.join(args.checkpoints, setting, weights)
-        self.model = dlinear.DLinear(self.config)
+        Model = load_model(args.model)
+        self.model = Model(self.config)
         self.model.load_state_dict(torch.load(self.checkpoint_path))
         print("Load model from {}".format(self.checkpoint_path))
 
         # data loader object
         self.dataloader, _ = data_provider(args, mode, return_date=True)
 
-        # scaler for inverse transform
-        self.scaler = StandardScaler()
-
         # startegy decider object
-        self.decider = Decider(0, args.seq_len, args.pred_len, log=decision_log)
+        self.decider = Decider(0, args.seq_len, args.pred_len, log=decision_log, min_cutoff=min_cutoff)
 
         if self.title_meta:
             # load instrument config for stock meta
@@ -93,8 +133,7 @@ class Visualize:
             columns = pd.read_csv(data_path, nrows=1).columns[1:]
             self.index_to_column = {i: self.instrumen_config[int(columns[i])] for i in range(len(columns))}
 
-
-    def plot(self, idx, stocks, plot=True, print_net_profit=True):
+    def plot(self, idx, stocks, plot=True, print_net_profit=True, plt_len=100):
 
         x, y, date_info = self.dataloader[idx]  # x is seq_len*channel, y is pred_len*channel
 
@@ -125,9 +164,9 @@ class Visualize:
             stock_meta_str = ''
             if self.title_meta:
                 stock_meta = self.index_to_column[stock]
-                stock_meta_str = ' | '.join(['{}: {}'.format(field, stock_meta[field]) for field in title_fields])
+                stock_meta_str = ' | '.join(['{}: {}'.format(field, stock_meta[field]) for field in self.title_fields])
 
-            loss = loss_fn(torch.from_numpy(y_pred_[stock]).unsqueeze(0), torch.from_numpy(y_[stock]).unsqueeze(0)).item()
+            loss = self.loss_fn(torch.from_numpy(y_pred_[stock]).unsqueeze(0), torch.from_numpy(y_[stock]).unsqueeze(0)).item()
             decision, profit, fund_utilized, commision = self.decider.decide(y_pred[stock], y[stock], x[stock][-1])
             fund_utilization += fund_utilized
             net_profit += profit
@@ -136,8 +175,8 @@ class Visualize:
 
             if plot:
                 title = '{}\n\n{} | loss: {:.4f} | decision: {}, profit: {} | {}'.format(stock_meta_str, i, loss, decision, profit, date_str)
-                plt.figure(figsize=(11, 3)); plt.plot(full_data[stock], label='real');
-                plt.plot(full_pred[stock], label='model');
+                plt.figure(figsize=(11, 3)); plt.plot(full_data[stock][-plt_len:], label='real');
+                plt.plot(full_pred[stock][-plt_len:], label='model');
                 plt.legend(); plt.title(title, fontsize=10); plt.show()
 
             if print_net_profit:

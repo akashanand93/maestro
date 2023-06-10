@@ -1,0 +1,2506 @@
+
+-------------Training for target 0-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.887428998947144
+Epoch: 1, Steps: 364 | Train Loss: 1.6566568 Vali Loss: 0.4599693
+Validation loss decreased (inf --> 0.459969).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.832058906555176
+Epoch: 2, Steps: 364 | Train Loss: 0.0188849 Vali Loss: 0.3709519
+Validation loss decreased (0.459969 --> 0.370952).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 60.277161836624146
+Epoch: 3, Steps: 364 | Train Loss: 0.0061830 Vali Loss: 0.4214416
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.737181186676025
+Epoch: 4, Steps: 364 | Train Loss: 0.0050012 Vali Loss: 0.3610928
+Validation loss decreased (0.370952 --> 0.361093).  Saving model ...
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.71523404121399
+Epoch: 5, Steps: 364 | Train Loss: 0.0035815 Vali Loss: 0.5937721
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 60.234766244888306
+Epoch: 6, Steps: 364 | Train Loss: 0.0028527 Vali Loss: 0.5427673
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.614163875579834
+Epoch: 7, Steps: 364 | Train Loss: 0.0026709 Vali Loss: 0.5776154
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 1-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 60.13579607009888
+Epoch: 1, Steps: 364 | Train Loss: 1.0135261 Vali Loss: 0.8310901
+Validation loss decreased (inf --> 0.831090).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.8503360748291
+Epoch: 2, Steps: 364 | Train Loss: 0.1491616 Vali Loss: 1.0267881
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.61386489868164
+Epoch: 3, Steps: 364 | Train Loss: 0.2660118 Vali Loss: 1.3112955
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.613150119781494
+Epoch: 4, Steps: 364 | Train Loss: 0.0568362 Vali Loss: 0.4818652
+Validation loss decreased (0.831090 --> 0.481865).  Saving model ...
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.318479776382446
+Epoch: 5, Steps: 364 | Train Loss: 0.0028875 Vali Loss: 0.4148524
+Validation loss decreased (0.481865 --> 0.414852).  Saving model ...
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.333776235580444
+Epoch: 6, Steps: 364 | Train Loss: 0.0021433 Vali Loss: 0.4300721
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.381409883499146
+Epoch: 7, Steps: 364 | Train Loss: 0.0019056 Vali Loss: 0.4362781
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00078125
+Epoch: 8 | time: 59.50311899185181
+Epoch: 8, Steps: 364 | Train Loss: 0.0017752 Vali Loss: 0.4464661
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 2-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.94973611831665
+Epoch: 1, Steps: 364 | Train Loss: 1.3918642 Vali Loss: 0.4038511
+Validation loss decreased (inf --> 0.403851).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.296846866607666
+Epoch: 2, Steps: 364 | Train Loss: 0.0882790 Vali Loss: 4.2624512
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.313302993774414
+Epoch: 3, Steps: 364 | Train Loss: 0.0369942 Vali Loss: 0.0931076
+Validation loss decreased (0.403851 --> 0.093108).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.29885005950928
+Epoch: 4, Steps: 364 | Train Loss: 0.0107110 Vali Loss: 0.4078861
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.397464752197266
+Epoch: 5, Steps: 364 | Train Loss: 0.0101279 Vali Loss: 0.3260331
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.47820591926575
+Epoch: 6, Steps: 364 | Train Loss: 0.0072183 Vali Loss: 0.3581261
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 3-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.68875312805176
+Epoch: 1, Steps: 364 | Train Loss: 1.6090295 Vali Loss: 0.3616605
+Validation loss decreased (inf --> 0.361660).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.342976093292236
+Epoch: 2, Steps: 364 | Train Loss: 0.0206301 Vali Loss: 0.4291869
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.327893018722534
+Epoch: 3, Steps: 364 | Train Loss: 0.0078123 Vali Loss: 0.4739449
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.32949090003967
+Epoch: 4, Steps: 364 | Train Loss: 0.0048767 Vali Loss: 0.4284191
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 4-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.454866886138916
+Epoch: 1, Steps: 364 | Train Loss: 0.9879900 Vali Loss: 1.0363365
+Validation loss decreased (inf --> 1.036337).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.24045205116272
+Epoch: 2, Steps: 364 | Train Loss: 0.3573277 Vali Loss: 0.2444780
+Validation loss decreased (1.036337 --> 0.244478).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.281124114990234
+Epoch: 3, Steps: 364 | Train Loss: 0.0496441 Vali Loss: 0.0931307
+Validation loss decreased (0.244478 --> 0.093131).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.359379291534424
+Epoch: 4, Steps: 364 | Train Loss: 0.0222086 Vali Loss: 0.0834597
+Validation loss decreased (0.093131 --> 0.083460).  Saving model ...
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.25002908706665
+Epoch: 5, Steps: 364 | Train Loss: 0.0233275 Vali Loss: 0.0878154
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.34053611755371
+Epoch: 6, Steps: 364 | Train Loss: 0.0119612 Vali Loss: 0.0975534
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.39644908905029
+Epoch: 7, Steps: 364 | Train Loss: 0.0110319 Vali Loss: 0.1078813
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 5-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.72637891769409
+Epoch: 1, Steps: 364 | Train Loss: 1.0765219 Vali Loss: 2.4976811
+Validation loss decreased (inf --> 2.497681).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.21614480018616
+Epoch: 2, Steps: 364 | Train Loss: 0.1339479 Vali Loss: 0.5323864
+Validation loss decreased (2.497681 --> 0.532386).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.2025408744812
+Epoch: 3, Steps: 364 | Train Loss: 0.0336943 Vali Loss: 2.3429303
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.320640087127686
+Epoch: 4, Steps: 364 | Train Loss: 0.0152002 Vali Loss: 2.3135841
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.298975229263306
+Epoch: 5, Steps: 364 | Train Loss: 0.0117666 Vali Loss: 1.5023535
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 6-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.52482318878174
+Epoch: 1, Steps: 364 | Train Loss: 0.9226480 Vali Loss: 0.1233206
+Validation loss decreased (inf --> 0.123321).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.24277591705322
+Epoch: 2, Steps: 364 | Train Loss: 0.1450155 Vali Loss: 0.0960212
+Validation loss decreased (0.123321 --> 0.096021).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.27123403549194
+Epoch: 3, Steps: 364 | Train Loss: 0.0562600 Vali Loss: 0.1214524
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.30477809906006
+Epoch: 4, Steps: 364 | Train Loss: 0.0515388 Vali Loss: 0.1053281
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.33426570892334
+Epoch: 5, Steps: 364 | Train Loss: 0.0049172 Vali Loss: 0.0962906
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 7-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.52085900306702
+Epoch: 1, Steps: 364 | Train Loss: 0.8241020 Vali Loss: 1.3101690
+Validation loss decreased (inf --> 1.310169).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.24112319946289
+Epoch: 2, Steps: 364 | Train Loss: 0.2966186 Vali Loss: 0.5836007
+Validation loss decreased (1.310169 --> 0.583601).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.25312781333923
+Epoch: 3, Steps: 364 | Train Loss: 0.1341036 Vali Loss: 1.7379849
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.30809211730957
+Epoch: 4, Steps: 364 | Train Loss: 0.0067515 Vali Loss: 1.8301510
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.21972990036011
+Epoch: 5, Steps: 364 | Train Loss: 0.0047864 Vali Loss: 1.6671301
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 8-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.59243822097778
+Epoch: 1, Steps: 364 | Train Loss: 0.8304790 Vali Loss: 0.0377199
+Validation loss decreased (inf --> 0.037720).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.31293082237244
+Epoch: 2, Steps: 364 | Train Loss: 1.4853732 Vali Loss: 1.4863874
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.380616188049316
+Epoch: 3, Steps: 364 | Train Loss: 0.0747954 Vali Loss: 6.3563685
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.26959991455078
+Epoch: 4, Steps: 364 | Train Loss: 0.0272513 Vali Loss: 3.7475371
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 9-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.42446208000183
+Epoch: 1, Steps: 364 | Train Loss: 0.6811108 Vali Loss: 0.8124522
+Validation loss decreased (inf --> 0.812452).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.27954387664795
+Epoch: 2, Steps: 364 | Train Loss: 2.6483102 Vali Loss: 1.2081888
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.294968128204346
+Epoch: 3, Steps: 364 | Train Loss: 0.0356158 Vali Loss: 2.7123926
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.28190302848816
+Epoch: 4, Steps: 364 | Train Loss: 0.0185659 Vali Loss: 1.8949422
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 10-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.47649598121643
+Epoch: 1, Steps: 364 | Train Loss: 1.2768200 Vali Loss: 1.3933170
+Validation loss decreased (inf --> 1.393317).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.266300201416016
+Epoch: 2, Steps: 364 | Train Loss: 0.1662121 Vali Loss: 2.0556843
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.30073809623718
+Epoch: 3, Steps: 364 | Train Loss: 0.0292656 Vali Loss: 0.9496709
+Validation loss decreased (1.393317 --> 0.949671).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.2414071559906
+Epoch: 4, Steps: 364 | Train Loss: 0.0151458 Vali Loss: 1.4166034
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.325217962265015
+Epoch: 5, Steps: 364 | Train Loss: 0.0120681 Vali Loss: 1.4394799
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.29981803894043
+Epoch: 6, Steps: 364 | Train Loss: 0.0108104 Vali Loss: 1.3005688
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 11-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.7050678730011
+Epoch: 1, Steps: 364 | Train Loss: 1.2754736 Vali Loss: 0.0862495
+Validation loss decreased (inf --> 0.086249).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.30220413208008
+Epoch: 2, Steps: 364 | Train Loss: 0.2685944 Vali Loss: 0.4149188
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.26053833961487
+Epoch: 3, Steps: 364 | Train Loss: 0.1872753 Vali Loss: 0.1145188
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.3206627368927
+Epoch: 4, Steps: 364 | Train Loss: 0.0070439 Vali Loss: 0.0505350
+Validation loss decreased (0.086249 --> 0.050535).  Saving model ...
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.39474892616272
+Epoch: 5, Steps: 364 | Train Loss: 0.0049056 Vali Loss: 0.0410795
+Validation loss decreased (0.050535 --> 0.041080).  Saving model ...
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.35210299491882
+Epoch: 6, Steps: 364 | Train Loss: 0.0041238 Vali Loss: 0.0503547
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.369810819625854
+Epoch: 7, Steps: 364 | Train Loss: 0.0036921 Vali Loss: 0.0436091
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00078125
+Epoch: 8 | time: 59.29657220840454
+Epoch: 8, Steps: 364 | Train Loss: 0.0035722 Vali Loss: 0.0500001
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 12-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.9271297454834
+Epoch: 1, Steps: 364 | Train Loss: 2.1947025 Vali Loss: 0.2641331
+Validation loss decreased (inf --> 0.264133).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.2547390460968
+Epoch: 2, Steps: 364 | Train Loss: 0.0147538 Vali Loss: 0.1349155
+Validation loss decreased (0.264133 --> 0.134916).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.191532611846924
+Epoch: 3, Steps: 364 | Train Loss: 0.0078396 Vali Loss: 0.1726729
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.38858699798584
+Epoch: 4, Steps: 364 | Train Loss: 0.2273091 Vali Loss: 0.1251438
+Validation loss decreased (0.134916 --> 0.125144).  Saving model ...
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.34347200393677
+Epoch: 5, Steps: 364 | Train Loss: 0.0129497 Vali Loss: 0.1462287
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.33777475357056
+Epoch: 6, Steps: 364 | Train Loss: 0.0092254 Vali Loss: 0.1845012
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.28311204910278
+Epoch: 7, Steps: 364 | Train Loss: 0.0077997 Vali Loss: 0.1457516
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 13-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.76144576072693
+Epoch: 1, Steps: 364 | Train Loss: 0.8294261 Vali Loss: 1.7476349
+Validation loss decreased (inf --> 1.747635).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.32655882835388
+Epoch: 2, Steps: 364 | Train Loss: 0.2898868 Vali Loss: 5.3539805
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.304627895355225
+Epoch: 3, Steps: 364 | Train Loss: 0.2461248 Vali Loss: 0.5038731
+Validation loss decreased (1.747635 --> 0.503873).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.35301089286804
+Epoch: 4, Steps: 364 | Train Loss: 0.0182516 Vali Loss: 0.5374473
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.305655002593994
+Epoch: 5, Steps: 364 | Train Loss: 0.0067285 Vali Loss: 0.7057879
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.28473877906799
+Epoch: 6, Steps: 364 | Train Loss: 0.0050859 Vali Loss: 0.5866644
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 14-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.696799993515015
+Epoch: 1, Steps: 364 | Train Loss: 1.0712716 Vali Loss: 14.6301193
+Validation loss decreased (inf --> 14.630119).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.31392574310303
+Epoch: 2, Steps: 364 | Train Loss: 0.4042919 Vali Loss: 0.4379799
+Validation loss decreased (14.630119 --> 0.437980).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.33661675453186
+Epoch: 3, Steps: 364 | Train Loss: 0.0162236 Vali Loss: 0.4193079
+Validation loss decreased (0.437980 --> 0.419308).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.44044637680054
+Epoch: 4, Steps: 364 | Train Loss: 0.0085404 Vali Loss: 0.3818859
+Validation loss decreased (0.419308 --> 0.381886).  Saving model ...
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.3343448638916
+Epoch: 5, Steps: 364 | Train Loss: 0.0066423 Vali Loss: 0.3308514
+Validation loss decreased (0.381886 --> 0.330851).  Saving model ...
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.32045578956604
+Epoch: 6, Steps: 364 | Train Loss: 0.0060070 Vali Loss: 0.4079527
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.2841100692749
+Epoch: 7, Steps: 364 | Train Loss: 0.0056554 Vali Loss: 0.3620041
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00078125
+Epoch: 8 | time: 59.3427472114563
+Epoch: 8, Steps: 364 | Train Loss: 0.0054122 Vali Loss: 0.3760072
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 15-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.95788908004761
+Epoch: 1, Steps: 364 | Train Loss: 0.9652964 Vali Loss: 3.9168844
+Validation loss decreased (inf --> 3.916884).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.210366010665894
+Epoch: 2, Steps: 364 | Train Loss: 0.3481205 Vali Loss: 4.8200722
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.322015047073364
+Epoch: 3, Steps: 364 | Train Loss: 0.1048035 Vali Loss: 4.5192399
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.34152173995972
+Epoch: 4, Steps: 364 | Train Loss: 0.0088300 Vali Loss: 4.4369063
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 16-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.493398904800415
+Epoch: 1, Steps: 364 | Train Loss: 1.2153622 Vali Loss: 4.3026481
+Validation loss decreased (inf --> 4.302648).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.32426595687866
+Epoch: 2, Steps: 364 | Train Loss: 0.6986581 Vali Loss: 0.9867873
+Validation loss decreased (4.302648 --> 0.986787).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.3200261592865
+Epoch: 3, Steps: 364 | Train Loss: 0.0555991 Vali Loss: 0.4765570
+Validation loss decreased (0.986787 --> 0.476557).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.387237787246704
+Epoch: 4, Steps: 364 | Train Loss: 0.0197859 Vali Loss: 0.4084080
+Validation loss decreased (0.476557 --> 0.408408).  Saving model ...
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.35553002357483
+Epoch: 5, Steps: 364 | Train Loss: 0.0129852 Vali Loss: 0.3680660
+Validation loss decreased (0.408408 --> 0.368066).  Saving model ...
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.350629806518555
+Epoch: 6, Steps: 364 | Train Loss: 0.0098072 Vali Loss: 0.3054140
+Validation loss decreased (0.368066 --> 0.305414).  Saving model ...
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.299896240234375
+Epoch: 7, Steps: 364 | Train Loss: 0.0091815 Vali Loss: 0.2937745
+Validation loss decreased (0.305414 --> 0.293774).  Saving model ...
+Updating learning rate to 0.00078125
+Epoch: 8 | time: 59.36954188346863
+Epoch: 8, Steps: 364 | Train Loss: 0.0087642 Vali Loss: 0.2805941
+Validation loss decreased (0.293774 --> 0.280594).  Saving model ...
+Updating learning rate to 0.000390625
+
+-------------Training for target 17-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 60.25822687149048
+Epoch: 1, Steps: 364 | Train Loss: 1.0320034 Vali Loss: 0.7006253
+Validation loss decreased (inf --> 0.700625).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.21524500846863
+Epoch: 2, Steps: 364 | Train Loss: 0.6499027 Vali Loss: 1.2185301
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.32525277137756
+Epoch: 3, Steps: 364 | Train Loss: 0.0367463 Vali Loss: 1.3383696
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.33398985862732
+Epoch: 4, Steps: 364 | Train Loss: 0.0107063 Vali Loss: 1.0462948
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 18-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.523849964141846
+Epoch: 1, Steps: 364 | Train Loss: 2.5766932 Vali Loss: 4.3982148
+Validation loss decreased (inf --> 4.398215).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.27581214904785
+Epoch: 2, Steps: 364 | Train Loss: 0.0278915 Vali Loss: 3.9128437
+Validation loss decreased (4.398215 --> 3.912844).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.284690856933594
+Epoch: 3, Steps: 364 | Train Loss: 0.0190095 Vali Loss: 4.3660774
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.32325792312622
+Epoch: 4, Steps: 364 | Train Loss: 0.0156601 Vali Loss: 3.9035625
+Validation loss decreased (3.912844 --> 3.903563).  Saving model ...
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.36218190193176
+Epoch: 5, Steps: 364 | Train Loss: 0.0113998 Vali Loss: 3.2630701
+Validation loss decreased (3.903563 --> 3.263070).  Saving model ...
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.38852310180664
+Epoch: 6, Steps: 364 | Train Loss: 0.0106246 Vali Loss: 3.4771061
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.33643126487732
+Epoch: 7, Steps: 364 | Train Loss: 0.0099883 Vali Loss: 3.3420148
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00078125
+Epoch: 8 | time: 59.401262044906616
+Epoch: 8, Steps: 364 | Train Loss: 0.0096606 Vali Loss: 3.2728567
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 19-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.81262016296387
+Epoch: 1, Steps: 364 | Train Loss: 1.3454778 Vali Loss: 2.9853327
+Validation loss decreased (inf --> 2.985333).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.312498807907104
+Epoch: 2, Steps: 364 | Train Loss: 0.1465651 Vali Loss: 0.1729259
+Validation loss decreased (2.985333 --> 0.172926).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.278685331344604
+Epoch: 3, Steps: 364 | Train Loss: 1.0305187 Vali Loss: 0.4372302
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.298994064331055
+Epoch: 4, Steps: 364 | Train Loss: 0.0225417 Vali Loss: 1.1238598
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.30831813812256
+Epoch: 5, Steps: 364 | Train Loss: 0.0165832 Vali Loss: 0.7720953
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 20-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.55830907821655
+Epoch: 1, Steps: 364 | Train Loss: 0.6534806 Vali Loss: 0.2203883
+Validation loss decreased (inf --> 0.220388).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.33112812042236
+Epoch: 2, Steps: 364 | Train Loss: 6.3111477 Vali Loss: 0.3450643
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.29652810096741
+Epoch: 3, Steps: 364 | Train Loss: 0.0650247 Vali Loss: 0.8338013
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.260700941085815
+Epoch: 4, Steps: 364 | Train Loss: 0.0480478 Vali Loss: 0.8042357
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 21-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.52140021324158
+Epoch: 1, Steps: 364 | Train Loss: 1.1000711 Vali Loss: 0.2507784
+Validation loss decreased (inf --> 0.250778).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.3177170753479
+Epoch: 2, Steps: 364 | Train Loss: 2.3798373 Vali Loss: 8.0497704
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.25973606109619
+Epoch: 3, Steps: 364 | Train Loss: 0.2902700 Vali Loss: 1.5630014
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.2713840007782
+Epoch: 4, Steps: 364 | Train Loss: 0.0118218 Vali Loss: 0.6894169
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 22-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.521299839019775
+Epoch: 1, Steps: 364 | Train Loss: 0.8588883 Vali Loss: 0.0636246
+Validation loss decreased (inf --> 0.063625).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.33744406700134
+Epoch: 2, Steps: 364 | Train Loss: 0.3427896 Vali Loss: 0.0819673
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.28102993965149
+Epoch: 3, Steps: 364 | Train Loss: 0.0662690 Vali Loss: 0.0548196
+Validation loss decreased (0.063625 --> 0.054820).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.366633892059326
+Epoch: 4, Steps: 364 | Train Loss: 0.0239436 Vali Loss: 0.0128828
+Validation loss decreased (0.054820 --> 0.012883).  Saving model ...
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.34727191925049
+Epoch: 5, Steps: 364 | Train Loss: 0.0021748 Vali Loss: 0.0109079
+Validation loss decreased (0.012883 --> 0.010908).  Saving model ...
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.33178901672363
+Epoch: 6, Steps: 364 | Train Loss: 0.0016415 Vali Loss: 0.0150287
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.39991497993469
+Epoch: 7, Steps: 364 | Train Loss: 0.0014642 Vali Loss: 0.0164442
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00078125
+Epoch: 8 | time: 59.37310791015625
+Epoch: 8, Steps: 364 | Train Loss: 0.0013707 Vali Loss: 0.0145968
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 23-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.90048885345459
+Epoch: 1, Steps: 364 | Train Loss: 1.4970462 Vali Loss: 0.3658023
+Validation loss decreased (inf --> 0.365802).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.31581997871399
+Epoch: 2, Steps: 364 | Train Loss: 0.0166723 Vali Loss: 0.0327199
+Validation loss decreased (0.365802 --> 0.032720).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.23464012145996
+Epoch: 3, Steps: 364 | Train Loss: 0.0056748 Vali Loss: 0.1006306
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.33309006690979
+Epoch: 4, Steps: 364 | Train Loss: 0.0036184 Vali Loss: 0.0528364
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.349762201309204
+Epoch: 5, Steps: 364 | Train Loss: 0.0026248 Vali Loss: 0.0503198
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 24-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.5238778591156
+Epoch: 1, Steps: 364 | Train Loss: 0.8492680 Vali Loss: 12.0564232
+Validation loss decreased (inf --> 12.056423).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.31531381607056
+Epoch: 2, Steps: 364 | Train Loss: 0.3150356 Vali Loss: 15.5521669
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.33666396141052
+Epoch: 3, Steps: 364 | Train Loss: 0.0377333 Vali Loss: 7.2396560
+Validation loss decreased (12.056423 --> 7.239656).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.34447503089905
+Epoch: 4, Steps: 364 | Train Loss: 0.2067735 Vali Loss: 8.3607464
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.34033703804016
+Epoch: 5, Steps: 364 | Train Loss: 0.0113927 Vali Loss: 8.4288816
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.27730417251587
+Epoch: 6, Steps: 364 | Train Loss: 0.0089174 Vali Loss: 8.8877783
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 25-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.62931418418884
+Epoch: 1, Steps: 364 | Train Loss: 1.1841684 Vali Loss: 0.0246064
+Validation loss decreased (inf --> 0.024606).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.348201751708984
+Epoch: 2, Steps: 364 | Train Loss: 0.0186733 Vali Loss: 0.0180294
+Validation loss decreased (0.024606 --> 0.018029).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.36646032333374
+Epoch: 3, Steps: 364 | Train Loss: 0.0154514 Vali Loss: 0.0179282
+Validation loss decreased (0.018029 --> 0.017928).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.342087268829346
+Epoch: 4, Steps: 364 | Train Loss: 0.0348900 Vali Loss: 0.0281079
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.29726195335388
+Epoch: 5, Steps: 364 | Train Loss: 0.0041173 Vali Loss: 0.0220431
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.31856083869934
+Epoch: 6, Steps: 364 | Train Loss: 0.0035543 Vali Loss: 0.0168656
+Validation loss decreased (0.017928 --> 0.016866).  Saving model ...
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.383466958999634
+Epoch: 7, Steps: 364 | Train Loss: 0.0032240 Vali Loss: 0.0230882
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00078125
+Epoch: 8 | time: 59.33323383331299
+Epoch: 8, Steps: 364 | Train Loss: 0.0031333 Vali Loss: 0.0172875
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.000390625
+
+-------------Training for target 26-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.93075680732727
+Epoch: 1, Steps: 364 | Train Loss: 1.1585241 Vali Loss: 0.2354436
+Validation loss decreased (inf --> 0.235444).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.24422240257263
+Epoch: 2, Steps: 364 | Train Loss: 0.1773154 Vali Loss: 0.6193986
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.2846999168396
+Epoch: 3, Steps: 364 | Train Loss: 0.4003992 Vali Loss: 2.7084155
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.300102949142456
+Epoch: 4, Steps: 364 | Train Loss: 0.0357676 Vali Loss: 0.4974706
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 27-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.53838896751404
+Epoch: 1, Steps: 364 | Train Loss: 1.3285560 Vali Loss: 0.1606781
+Validation loss decreased (inf --> 0.160678).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.28080105781555
+Epoch: 2, Steps: 364 | Train Loss: 0.0481974 Vali Loss: 0.2052797
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.32959699630737
+Epoch: 3, Steps: 364 | Train Loss: 0.0136692 Vali Loss: 0.1228360
+Validation loss decreased (0.160678 --> 0.122836).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.33555293083191
+Epoch: 4, Steps: 364 | Train Loss: 0.0057892 Vali Loss: 0.1021317
+Validation loss decreased (0.122836 --> 0.102132).  Saving model ...
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.267813205718994
+Epoch: 5, Steps: 364 | Train Loss: 0.0049198 Vali Loss: 0.1052667
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.30971097946167
+Epoch: 6, Steps: 364 | Train Loss: 0.0043390 Vali Loss: 0.1201959
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.25933313369751
+Epoch: 7, Steps: 364 | Train Loss: 0.0040377 Vali Loss: 0.1327089
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 28-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.82876396179199
+Epoch: 1, Steps: 364 | Train Loss: 2.0036047 Vali Loss: 1.7075268
+Validation loss decreased (inf --> 1.707527).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.26624011993408
+Epoch: 2, Steps: 364 | Train Loss: 0.0374311 Vali Loss: 0.1430122
+Validation loss decreased (1.707527 --> 0.143012).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.26474905014038
+Epoch: 3, Steps: 364 | Train Loss: 0.0332847 Vali Loss: 1.0159514
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.28557276725769
+Epoch: 4, Steps: 364 | Train Loss: 0.0110108 Vali Loss: 1.3441879
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.34091901779175
+Epoch: 5, Steps: 364 | Train Loss: 0.0133725 Vali Loss: 1.3215524
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 29-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.58715891838074
+Epoch: 1, Steps: 364 | Train Loss: 1.5860477 Vali Loss: 0.0921856
+Validation loss decreased (inf --> 0.092186).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.30783700942993
+Epoch: 2, Steps: 364 | Train Loss: 0.0537101 Vali Loss: 0.0584574
+Validation loss decreased (0.092186 --> 0.058457).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.27491593360901
+Epoch: 3, Steps: 364 | Train Loss: 0.0119748 Vali Loss: 0.0181379
+Validation loss decreased (0.058457 --> 0.018138).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.34230709075928
+Epoch: 4, Steps: 364 | Train Loss: 0.0056564 Vali Loss: 0.1898725
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.38170385360718
+Epoch: 5, Steps: 364 | Train Loss: 0.0044380 Vali Loss: 0.0846053
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.38363599777222
+Epoch: 6, Steps: 364 | Train Loss: 0.0040139 Vali Loss: 0.0824795
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 30-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.728652000427246
+Epoch: 1, Steps: 364 | Train Loss: 0.7623713 Vali Loss: 1.3098135
+Validation loss decreased (inf --> 1.309813).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.33746004104614
+Epoch: 2, Steps: 364 | Train Loss: 0.5818730 Vali Loss: 17.6313267
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.38152289390564
+Epoch: 3, Steps: 364 | Train Loss: 0.1611513 Vali Loss: 1.9658303
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.361692905426025
+Epoch: 4, Steps: 364 | Train Loss: 0.0094001 Vali Loss: 2.3812516
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 31-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.562042236328125
+Epoch: 1, Steps: 364 | Train Loss: 0.7760102 Vali Loss: 0.9654561
+Validation loss decreased (inf --> 0.965456).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.400628089904785
+Epoch: 2, Steps: 364 | Train Loss: 0.0534363 Vali Loss: 3.0303049
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.41710805892944
+Epoch: 3, Steps: 364 | Train Loss: 0.0541600 Vali Loss: 0.1567892
+Validation loss decreased (0.965456 --> 0.156789).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.32153820991516
+Epoch: 4, Steps: 364 | Train Loss: 0.0224864 Vali Loss: 0.6791905
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.42736101150513
+Epoch: 5, Steps: 364 | Train Loss: 0.0016465 Vali Loss: 0.3803596
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.39789700508118
+Epoch: 6, Steps: 364 | Train Loss: 0.0013844 Vali Loss: 0.4330743
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 32-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.67682480812073
+Epoch: 1, Steps: 364 | Train Loss: 1.7917303 Vali Loss: 0.0732719
+Validation loss decreased (inf --> 0.073272).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.15441608428955
+Epoch: 2, Steps: 364 | Train Loss: 0.0361836 Vali Loss: 0.0880213
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.26138997077942
+Epoch: 3, Steps: 364 | Train Loss: 0.1087566 Vali Loss: 0.0532190
+Validation loss decreased (0.073272 --> 0.053219).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.2874321937561
+Epoch: 4, Steps: 364 | Train Loss: 0.0044814 Vali Loss: 0.0388923
+Validation loss decreased (0.053219 --> 0.038892).  Saving model ...
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.26601982116699
+Epoch: 5, Steps: 364 | Train Loss: 0.0024699 Vali Loss: 0.0362951
+Validation loss decreased (0.038892 --> 0.036295).  Saving model ...
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.36082196235657
+Epoch: 6, Steps: 364 | Train Loss: 0.0020543 Vali Loss: 0.0362264
+Validation loss decreased (0.036295 --> 0.036226).  Saving model ...
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.311403036117554
+Epoch: 7, Steps: 364 | Train Loss: 0.0018397 Vali Loss: 0.0456374
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00078125
+Epoch: 8 | time: 59.39595603942871
+Epoch: 8, Steps: 364 | Train Loss: 0.0017354 Vali Loss: 0.0392394
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.000390625
+
+-------------Training for target 33-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 60.04484677314758
+Epoch: 1, Steps: 364 | Train Loss: 0.9976559 Vali Loss: 0.3246200
+Validation loss decreased (inf --> 0.324620).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.294410943984985
+Epoch: 2, Steps: 364 | Train Loss: 2.6953757 Vali Loss: 4.5078268
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.33305811882019
+Epoch: 3, Steps: 364 | Train Loss: 0.1619270 Vali Loss: 4.0131803
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.55571007728577
+Epoch: 4, Steps: 364 | Train Loss: 0.0076333 Vali Loss: 3.6645193
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 34-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.577311992645264
+Epoch: 1, Steps: 364 | Train Loss: 0.8708238 Vali Loss: 0.2637839
+Validation loss decreased (inf --> 0.263784).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.281614780426025
+Epoch: 2, Steps: 364 | Train Loss: 0.4488956 Vali Loss: 15.5387745
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.57124304771423
+Epoch: 3, Steps: 364 | Train Loss: 0.2054668 Vali Loss: 0.1362742
+Validation loss decreased (0.263784 --> 0.136274).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.38494277000427
+Epoch: 4, Steps: 364 | Train Loss: 0.0667410 Vali Loss: 0.3457047
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.388169050216675
+Epoch: 5, Steps: 364 | Train Loss: 0.0198237 Vali Loss: 0.1130083
+Validation loss decreased (0.136274 --> 0.113008).  Saving model ...
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.348604917526245
+Epoch: 6, Steps: 364 | Train Loss: 0.0156734 Vali Loss: 0.1572458
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.36683487892151
+Epoch: 7, Steps: 364 | Train Loss: 0.0143834 Vali Loss: 0.1518259
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00078125
+Epoch: 8 | time: 59.421934843063354
+Epoch: 8, Steps: 364 | Train Loss: 0.0138012 Vali Loss: 0.1623443
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 35-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 60.07861018180847
+Epoch: 1, Steps: 364 | Train Loss: 1.0674575 Vali Loss: 0.2758223
+Validation loss decreased (inf --> 0.275822).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.31180691719055
+Epoch: 2, Steps: 364 | Train Loss: 0.1137861 Vali Loss: 1.4328222
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.38937306404114
+Epoch: 3, Steps: 364 | Train Loss: 0.0294284 Vali Loss: 1.0122166
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.39809203147888
+Epoch: 4, Steps: 364 | Train Loss: 0.0852209 Vali Loss: 0.1624776
+Validation loss decreased (0.275822 --> 0.162478).  Saving model ...
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.302753925323486
+Epoch: 5, Steps: 364 | Train Loss: 0.0286115 Vali Loss: 0.9742742
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.37336087226868
+Epoch: 6, Steps: 364 | Train Loss: 0.0115215 Vali Loss: 0.6728125
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.40239715576172
+Epoch: 7, Steps: 364 | Train Loss: 0.0095676 Vali Loss: 0.7851930
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 36-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.74733805656433
+Epoch: 1, Steps: 364 | Train Loss: 0.9665395 Vali Loss: 0.4101138
+Validation loss decreased (inf --> 0.410114).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.30767798423767
+Epoch: 2, Steps: 364 | Train Loss: 0.7624645 Vali Loss: 9.1243334
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.318965911865234
+Epoch: 3, Steps: 364 | Train Loss: 0.3927848 Vali Loss: 0.7924054
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.3884379863739
+Epoch: 4, Steps: 364 | Train Loss: 0.0226117 Vali Loss: 0.6453421
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 37-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.51943111419678
+Epoch: 1, Steps: 364 | Train Loss: 1.1777611 Vali Loss: 0.2979285
+Validation loss decreased (inf --> 0.297928).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.58422589302063
+Epoch: 2, Steps: 364 | Train Loss: 0.0573862 Vali Loss: 2.4141333
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.625510931015015
+Epoch: 3, Steps: 364 | Train Loss: 0.1653113 Vali Loss: 0.0272723
+Validation loss decreased (0.297928 --> 0.027272).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.343586683273315
+Epoch: 4, Steps: 364 | Train Loss: 0.0034230 Vali Loss: 0.0317197
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.40882420539856
+Epoch: 5, Steps: 364 | Train Loss: 0.0021919 Vali Loss: 0.0306114
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.37824511528015
+Epoch: 6, Steps: 364 | Train Loss: 0.0018756 Vali Loss: 0.0275042
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 38-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.67282795906067
+Epoch: 1, Steps: 364 | Train Loss: 1.2660223 Vali Loss: 1.4366976
+Validation loss decreased (inf --> 1.436698).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.345771074295044
+Epoch: 2, Steps: 364 | Train Loss: 0.2267994 Vali Loss: 1.6509780
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.273561000823975
+Epoch: 3, Steps: 364 | Train Loss: 0.0704351 Vali Loss: 3.0315740
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.38159203529358
+Epoch: 4, Steps: 364 | Train Loss: 0.0269491 Vali Loss: 2.4067867
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 39-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.53020787239075
+Epoch: 1, Steps: 364 | Train Loss: 1.1555954 Vali Loss: 1.8375221
+Validation loss decreased (inf --> 1.837522).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.328070878982544
+Epoch: 2, Steps: 364 | Train Loss: 0.1971516 Vali Loss: 1.6116720
+Validation loss decreased (1.837522 --> 1.611672).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.376989126205444
+Epoch: 3, Steps: 364 | Train Loss: 0.0168576 Vali Loss: 1.7165549
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.36036205291748
+Epoch: 4, Steps: 364 | Train Loss: 0.3900748 Vali Loss: 2.0303817
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.305336713790894
+Epoch: 5, Steps: 364 | Train Loss: 0.0145758 Vali Loss: 2.1485279
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 40-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.64472317695618
+Epoch: 1, Steps: 364 | Train Loss: 1.3325861 Vali Loss: 1.0524384
+Validation loss decreased (inf --> 1.052438).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.32486009597778
+Epoch: 2, Steps: 364 | Train Loss: 0.0733963 Vali Loss: 1.1046509
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.308544874191284
+Epoch: 3, Steps: 364 | Train Loss: 0.0057983 Vali Loss: 0.4511949
+Validation loss decreased (1.052438 --> 0.451195).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.373291969299316
+Epoch: 4, Steps: 364 | Train Loss: 0.0043797 Vali Loss: 0.4810935
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.24722909927368
+Epoch: 5, Steps: 364 | Train Loss: 0.0028843 Vali Loss: 0.4933624
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.42958688735962
+Epoch: 6, Steps: 364 | Train Loss: 0.0024465 Vali Loss: 0.5031549
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 41-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.72896385192871
+Epoch: 1, Steps: 364 | Train Loss: 1.1076714 Vali Loss: 0.8583262
+Validation loss decreased (inf --> 0.858326).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.415672063827515
+Epoch: 2, Steps: 364 | Train Loss: 0.0865038 Vali Loss: 1.0144359
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.37666392326355
+Epoch: 3, Steps: 364 | Train Loss: 0.0580095 Vali Loss: 0.8569372
+Validation loss decreased (0.858326 --> 0.856937).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.342023849487305
+Epoch: 4, Steps: 364 | Train Loss: 0.0444035 Vali Loss: 0.8240864
+Validation loss decreased (0.856937 --> 0.824086).  Saving model ...
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.26883316040039
+Epoch: 5, Steps: 364 | Train Loss: 0.0032816 Vali Loss: 0.9695992
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.32444381713867
+Epoch: 6, Steps: 364 | Train Loss: 0.0026647 Vali Loss: 0.8694927
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.46472191810608
+Epoch: 7, Steps: 364 | Train Loss: 0.0024586 Vali Loss: 0.8483703
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 42-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.753937005996704
+Epoch: 1, Steps: 364 | Train Loss: 0.5035779 Vali Loss: 1.7777243
+Validation loss decreased (inf --> 1.777724).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.29409122467041
+Epoch: 2, Steps: 364 | Train Loss: 2.3874242 Vali Loss: 1.0216060
+Validation loss decreased (1.777724 --> 1.021606).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.27343416213989
+Epoch: 3, Steps: 364 | Train Loss: 0.0440032 Vali Loss: 0.4926475
+Validation loss decreased (1.021606 --> 0.492647).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.35020589828491
+Epoch: 4, Steps: 364 | Train Loss: 0.0303779 Vali Loss: 0.7375951
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.2769079208374
+Epoch: 5, Steps: 364 | Train Loss: 0.0158916 Vali Loss: 0.6520228
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.31181812286377
+Epoch: 6, Steps: 364 | Train Loss: 0.0138528 Vali Loss: 0.6195028
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 43-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.68317127227783
+Epoch: 1, Steps: 364 | Train Loss: 0.8823932 Vali Loss: 0.1857414
+Validation loss decreased (inf --> 0.185741).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.357911109924316
+Epoch: 2, Steps: 364 | Train Loss: 0.0807281 Vali Loss: 0.1347875
+Validation loss decreased (0.185741 --> 0.134787).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.33102321624756
+Epoch: 3, Steps: 364 | Train Loss: 0.0501949 Vali Loss: 0.3511083
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.33012127876282
+Epoch: 4, Steps: 364 | Train Loss: 0.0153157 Vali Loss: 0.1905676
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.384780168533325
+Epoch: 5, Steps: 364 | Train Loss: 0.0115863 Vali Loss: 0.1160529
+Validation loss decreased (0.134787 --> 0.116053).  Saving model ...
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.39597797393799
+Epoch: 6, Steps: 364 | Train Loss: 0.0099115 Vali Loss: 0.1326357
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.35929203033447
+Epoch: 7, Steps: 364 | Train Loss: 0.0092627 Vali Loss: 0.1282574
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00078125
+Epoch: 8 | time: 59.441906213760376
+Epoch: 8, Steps: 364 | Train Loss: 0.0089204 Vali Loss: 0.1127769
+Validation loss decreased (0.116053 --> 0.112777).  Saving model ...
+Updating learning rate to 0.000390625
+
+-------------Training for target 44-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.962114095687866
+Epoch: 1, Steps: 364 | Train Loss: 1.1418968 Vali Loss: 0.3810900
+Validation loss decreased (inf --> 0.381090).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.20136499404907
+Epoch: 2, Steps: 364 | Train Loss: 0.0218348 Vali Loss: 0.1061690
+Validation loss decreased (0.381090 --> 0.106169).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.32415008544922
+Epoch: 3, Steps: 364 | Train Loss: 0.0089868 Vali Loss: 0.2580073
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.348702907562256
+Epoch: 4, Steps: 364 | Train Loss: 0.0051542 Vali Loss: 0.3780157
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.36292910575867
+Epoch: 5, Steps: 364 | Train Loss: 0.0041427 Vali Loss: 0.3212229
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 45-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.58142423629761
+Epoch: 1, Steps: 364 | Train Loss: 1.1568286 Vali Loss: 1.3761593
+Validation loss decreased (inf --> 1.376159).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.40595197677612
+Epoch: 2, Steps: 364 | Train Loss: 0.0474160 Vali Loss: 2.1882651
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.35948586463928
+Epoch: 3, Steps: 364 | Train Loss: 0.0086367 Vali Loss: 0.9321269
+Validation loss decreased (1.376159 --> 0.932127).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.45585370063782
+Epoch: 4, Steps: 364 | Train Loss: 0.0055473 Vali Loss: 0.7113629
+Validation loss decreased (0.932127 --> 0.711363).  Saving model ...
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.33928179740906
+Epoch: 5, Steps: 364 | Train Loss: 0.0040880 Vali Loss: 0.8349429
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.29095101356506
+Epoch: 6, Steps: 364 | Train Loss: 0.0036032 Vali Loss: 0.8494011
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.352532148361206
+Epoch: 7, Steps: 364 | Train Loss: 0.0031800 Vali Loss: 0.7393582
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 46-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.701979875564575
+Epoch: 1, Steps: 364 | Train Loss: 0.9449348 Vali Loss: 1.9333972
+Validation loss decreased (inf --> 1.933397).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.33761501312256
+Epoch: 2, Steps: 364 | Train Loss: 0.1287374 Vali Loss: 6.3267422
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.3831741809845
+Epoch: 3, Steps: 364 | Train Loss: 0.0485700 Vali Loss: 0.1923744
+Validation loss decreased (1.933397 --> 0.192374).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.27324199676514
+Epoch: 4, Steps: 364 | Train Loss: 0.0063574 Vali Loss: 0.1864450
+Validation loss decreased (0.192374 --> 0.186445).  Saving model ...
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.407864809036255
+Epoch: 5, Steps: 364 | Train Loss: 0.0039434 Vali Loss: 0.1824525
+Validation loss decreased (0.186445 --> 0.182452).  Saving model ...
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.31714200973511
+Epoch: 6, Steps: 364 | Train Loss: 0.0034315 Vali Loss: 0.1857745
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.48548769950867
+Epoch: 7, Steps: 364 | Train Loss: 0.0031190 Vali Loss: 0.2142404
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00078125
+Epoch: 8 | time: 59.362606048583984
+Epoch: 8, Steps: 364 | Train Loss: 0.0029616 Vali Loss: 0.2248333
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 47-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.90992307662964
+Epoch: 1, Steps: 364 | Train Loss: 1.3115909 Vali Loss: 0.1660843
+Validation loss decreased (inf --> 0.166084).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.27732300758362
+Epoch: 2, Steps: 364 | Train Loss: 0.0563829 Vali Loss: 0.0406439
+Validation loss decreased (0.166084 --> 0.040644).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.31732630729675
+Epoch: 3, Steps: 364 | Train Loss: 0.0307573 Vali Loss: 0.1231882
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.510268211364746
+Epoch: 4, Steps: 364 | Train Loss: 0.0166919 Vali Loss: 0.0515980
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.364134073257446
+Epoch: 5, Steps: 364 | Train Loss: 0.0129689 Vali Loss: 0.0448891
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 48-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.56920123100281
+Epoch: 1, Steps: 364 | Train Loss: 0.7330014 Vali Loss: 0.0485123
+Validation loss decreased (inf --> 0.048512).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.34120035171509
+Epoch: 2, Steps: 364 | Train Loss: 2.8428193 Vali Loss: 0.4532433
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.38771319389343
+Epoch: 3, Steps: 364 | Train Loss: 0.0818746 Vali Loss: 0.6777638
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.34914779663086
+Epoch: 4, Steps: 364 | Train Loss: 0.0514309 Vali Loss: 0.4889493
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 49-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.525965213775635
+Epoch: 1, Steps: 364 | Train Loss: 0.6193030 Vali Loss: 0.4841479
+Validation loss decreased (inf --> 0.484148).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.33054494857788
+Epoch: 2, Steps: 364 | Train Loss: 1.4670020 Vali Loss: 3.7551503
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.32981300354004
+Epoch: 3, Steps: 364 | Train Loss: 0.0423158 Vali Loss: 0.5780431
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.38685607910156
+Epoch: 4, Steps: 364 | Train Loss: 0.0413274 Vali Loss: 0.3516643
+Validation loss decreased (0.484148 --> 0.351664).  Saving model ...
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.2853889465332
+Epoch: 5, Steps: 364 | Train Loss: 0.0117848 Vali Loss: 0.4062947
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.281028032302856
+Epoch: 6, Steps: 364 | Train Loss: 0.0105310 Vali Loss: 0.4485844
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.31332302093506
+Epoch: 7, Steps: 364 | Train Loss: 0.0100421 Vali Loss: 0.4071846
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 50-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.77520799636841
+Epoch: 1, Steps: 364 | Train Loss: 1.0268077 Vali Loss: 2.8804860
+Validation loss decreased (inf --> 2.880486).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.30567288398743
+Epoch: 2, Steps: 364 | Train Loss: 0.5970788 Vali Loss: 0.1098973
+Validation loss decreased (2.880486 --> 0.109897).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.34004497528076
+Epoch: 3, Steps: 364 | Train Loss: 0.3753398 Vali Loss: 1.0669653
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.35410284996033
+Epoch: 4, Steps: 364 | Train Loss: 0.0088845 Vali Loss: 1.0096840
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.41569113731384
+Epoch: 5, Steps: 364 | Train Loss: 0.0071518 Vali Loss: 1.1298618
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 51-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.560699224472046
+Epoch: 1, Steps: 364 | Train Loss: 1.0028695 Vali Loss: 1.4003652
+Validation loss decreased (inf --> 1.400365).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.30286908149719
+Epoch: 2, Steps: 364 | Train Loss: 0.1123883 Vali Loss: 0.1385351
+Validation loss decreased (1.400365 --> 0.138535).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.39666509628296
+Epoch: 3, Steps: 364 | Train Loss: 0.0229594 Vali Loss: 0.1242961
+Validation loss decreased (0.138535 --> 0.124296).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.22591805458069
+Epoch: 4, Steps: 364 | Train Loss: 0.0143525 Vali Loss: 0.1175169
+Validation loss decreased (0.124296 --> 0.117517).  Saving model ...
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.33909797668457
+Epoch: 5, Steps: 364 | Train Loss: 0.0056234 Vali Loss: 0.1759342
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.377177000045776
+Epoch: 6, Steps: 364 | Train Loss: 0.0050364 Vali Loss: 0.1523724
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.37372589111328
+Epoch: 7, Steps: 364 | Train Loss: 0.0046236 Vali Loss: 0.1457381
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 52-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.808149099349976
+Epoch: 1, Steps: 364 | Train Loss: 2.3415701 Vali Loss: 0.1967783
+Validation loss decreased (inf --> 0.196778).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.29520106315613
+Epoch: 2, Steps: 364 | Train Loss: 0.0108576 Vali Loss: 0.0855134
+Validation loss decreased (0.196778 --> 0.085513).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.31174921989441
+Epoch: 3, Steps: 364 | Train Loss: 0.0040170 Vali Loss: 0.1701771
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.33767580986023
+Epoch: 4, Steps: 364 | Train Loss: 0.0025478 Vali Loss: 0.2244458
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.32139492034912
+Epoch: 5, Steps: 364 | Train Loss: 0.0019378 Vali Loss: 0.2153238
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 53-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.599974155426025
+Epoch: 1, Steps: 364 | Train Loss: 1.8305845 Vali Loss: 0.2928894
+Validation loss decreased (inf --> 0.292889).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.318313121795654
+Epoch: 2, Steps: 364 | Train Loss: 0.0780475 Vali Loss: 0.4001837
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.277042865753174
+Epoch: 3, Steps: 364 | Train Loss: 0.6685502 Vali Loss: 0.8571395
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.320728063583374
+Epoch: 4, Steps: 364 | Train Loss: 0.0316973 Vali Loss: 0.6146978
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 54-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.52819299697876
+Epoch: 1, Steps: 364 | Train Loss: 1.1238634 Vali Loss: 2.7685249
+Validation loss decreased (inf --> 2.768525).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.29616689682007
+Epoch: 2, Steps: 364 | Train Loss: 0.0700796 Vali Loss: 1.8629022
+Validation loss decreased (2.768525 --> 1.862902).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.361329793930054
+Epoch: 3, Steps: 364 | Train Loss: 0.0185089 Vali Loss: 2.3009460
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.32505989074707
+Epoch: 4, Steps: 364 | Train Loss: 0.1520368 Vali Loss: 1.0357943
+Validation loss decreased (1.862902 --> 1.035794).  Saving model ...
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.442063093185425
+Epoch: 5, Steps: 364 | Train Loss: 0.0271993 Vali Loss: 1.5150303
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.38662099838257
+Epoch: 6, Steps: 364 | Train Loss: 0.0074299 Vali Loss: 1.4524508
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.331971168518066
+Epoch: 7, Steps: 364 | Train Loss: 0.0066183 Vali Loss: 1.4355558
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 55-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.72883200645447
+Epoch: 1, Steps: 364 | Train Loss: 0.9370565 Vali Loss: 0.0705200
+Validation loss decreased (inf --> 0.070520).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.24680209159851
+Epoch: 2, Steps: 364 | Train Loss: 1.2781282 Vali Loss: 2.2644947
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.258588790893555
+Epoch: 3, Steps: 364 | Train Loss: 0.0518947 Vali Loss: 1.0932724
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.324779987335205
+Epoch: 4, Steps: 364 | Train Loss: 0.0119575 Vali Loss: 1.0118299
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 56-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.48467302322388
+Epoch: 1, Steps: 364 | Train Loss: 0.6901443 Vali Loss: 0.0702480
+Validation loss decreased (inf --> 0.070248).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.38004016876221
+Epoch: 2, Steps: 364 | Train Loss: 1.5865445 Vali Loss: 2.6595051
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.343538761138916
+Epoch: 3, Steps: 364 | Train Loss: 0.0441958 Vali Loss: 0.3606397
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.46553182601929
+Epoch: 4, Steps: 364 | Train Loss: 0.0138861 Vali Loss: 0.3673719
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 57-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.48446297645569
+Epoch: 1, Steps: 364 | Train Loss: 1.5656244 Vali Loss: 0.5696557
+Validation loss decreased (inf --> 0.569656).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.316033124923706
+Epoch: 2, Steps: 364 | Train Loss: 0.1046518 Vali Loss: 0.3542363
+Validation loss decreased (0.569656 --> 0.354236).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.30233907699585
+Epoch: 3, Steps: 364 | Train Loss: 0.0089962 Vali Loss: 0.4315378
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.334288120269775
+Epoch: 4, Steps: 364 | Train Loss: 0.0048150 Vali Loss: 0.5421032
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.312561988830566
+Epoch: 5, Steps: 364 | Train Loss: 0.0037241 Vali Loss: 0.5160083
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 58-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.64116621017456
+Epoch: 1, Steps: 364 | Train Loss: 1.4116460 Vali Loss: 0.7798777
+Validation loss decreased (inf --> 0.779878).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.227537870407104
+Epoch: 2, Steps: 364 | Train Loss: 0.1165599 Vali Loss: 2.2581632
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.33606815338135
+Epoch: 3, Steps: 364 | Train Loss: 0.0362742 Vali Loss: 0.3336317
+Validation loss decreased (0.779878 --> 0.333632).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.224733114242554
+Epoch: 4, Steps: 364 | Train Loss: 0.0132959 Vali Loss: 0.2193419
+Validation loss decreased (0.333632 --> 0.219342).  Saving model ...
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.360514879226685
+Epoch: 5, Steps: 364 | Train Loss: 0.0104509 Vali Loss: 0.2222493
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.34332799911499
+Epoch: 6, Steps: 364 | Train Loss: 0.0086535 Vali Loss: 0.2297561
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.45861601829529
+Epoch: 7, Steps: 364 | Train Loss: 0.0080601 Vali Loss: 0.2348067
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 59-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.7102427482605
+Epoch: 1, Steps: 364 | Train Loss: 1.3855048 Vali Loss: 0.7281520
+Validation loss decreased (inf --> 0.728152).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.330333948135376
+Epoch: 2, Steps: 364 | Train Loss: 0.0810485 Vali Loss: 1.1352781
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.330862045288086
+Epoch: 3, Steps: 364 | Train Loss: 0.3937533 Vali Loss: 0.6028646
+Validation loss decreased (0.728152 --> 0.602865).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.337918758392334
+Epoch: 4, Steps: 364 | Train Loss: 0.0125659 Vali Loss: 0.2787974
+Validation loss decreased (0.602865 --> 0.278797).  Saving model ...
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.33118510246277
+Epoch: 5, Steps: 364 | Train Loss: 0.0064047 Vali Loss: 0.1939295
+Validation loss decreased (0.278797 --> 0.193930).  Saving model ...
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.44336485862732
+Epoch: 6, Steps: 364 | Train Loss: 0.0054913 Vali Loss: 0.1331254
+Validation loss decreased (0.193930 --> 0.133125).  Saving model ...
+Updating learning rate to 0.0015625
+Epoch: 7 | time: 59.44066405296326
+Epoch: 7, Steps: 364 | Train Loss: 0.0049227 Vali Loss: 0.1071296
+Validation loss decreased (0.133125 --> 0.107130).  Saving model ...
+Updating learning rate to 0.00078125
+Epoch: 8 | time: 59.53017783164978
+Epoch: 8, Steps: 364 | Train Loss: 0.0046784 Vali Loss: 0.0945057
+Validation loss decreased (0.107130 --> 0.094506).  Saving model ...
+Updating learning rate to 0.000390625
+
+-------------Training for target 60-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 60.08769488334656
+Epoch: 1, Steps: 364 | Train Loss: 1.5413922 Vali Loss: 1.6312180
+Validation loss decreased (inf --> 1.631218).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.43587517738342
+Epoch: 2, Steps: 364 | Train Loss: 0.0113886 Vali Loss: 0.8985429
+Validation loss decreased (1.631218 --> 0.898543).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.315130949020386
+Epoch: 3, Steps: 364 | Train Loss: 0.0028061 Vali Loss: 0.9627885
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 63.285468101501465
+Epoch: 4, Steps: 364 | Train Loss: 0.0016640 Vali Loss: 1.0279129
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 63.386985063552856
+Epoch: 5, Steps: 364 | Train Loss: 0.0012138 Vali Loss: 1.0716801
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 61-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 63.63294315338135
+Epoch: 1, Steps: 364 | Train Loss: 2.0573475 Vali Loss: 0.9627034
+Validation loss decreased (inf --> 0.962703).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.24237322807312
+Epoch: 2, Steps: 364 | Train Loss: 0.0177075 Vali Loss: 0.6207008
+Validation loss decreased (0.962703 --> 0.620701).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.370198011398315
+Epoch: 3, Steps: 364 | Train Loss: 0.0048090 Vali Loss: 0.2348979
+Validation loss decreased (0.620701 --> 0.234898).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.386476039886475
+Epoch: 4, Steps: 364 | Train Loss: 0.0033768 Vali Loss: 0.3026295
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 59.32188606262207
+Epoch: 5, Steps: 364 | Train Loss: 0.0026661 Vali Loss: 0.2968383
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 59.40826201438904
+Epoch: 6, Steps: 364 | Train Loss: 0.0023472 Vali Loss: 0.2467443
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 62-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.67187714576721
+Epoch: 1, Steps: 364 | Train Loss: 0.8017445 Vali Loss: 0.2932084
+Validation loss decreased (inf --> 0.293208).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.25248098373413
+Epoch: 2, Steps: 364 | Train Loss: 3.8131712 Vali Loss: 10.6242523
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.355409145355225
+Epoch: 3, Steps: 364 | Train Loss: 0.1640626 Vali Loss: 4.6680446
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.39489412307739
+Epoch: 4, Steps: 364 | Train Loss: 0.0890211 Vali Loss: 3.9363818
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 63-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 59.55761790275574
+Epoch: 1, Steps: 364 | Train Loss: 1.0363237 Vali Loss: 0.1313888
+Validation loss decreased (inf --> 0.131389).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 59.294816970825195
+Epoch: 2, Steps: 364 | Train Loss: 0.1992464 Vali Loss: 0.3955048
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 59.39661502838135
+Epoch: 3, Steps: 364 | Train Loss: 0.0283977 Vali Loss: 0.0304815
+Validation loss decreased (0.131389 --> 0.030482).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 59.37383723258972
+Epoch: 4, Steps: 364 | Train Loss: 0.0032644 Vali Loss: 0.0561669
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 63.97627091407776
+Epoch: 5, Steps: 364 | Train Loss: 0.0039934 Vali Loss: 0.0385607
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 63.3358941078186
+Epoch: 6, Steps: 364 | Train Loss: 0.0017353 Vali Loss: 0.0389541
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 64-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 63.59051990509033
+Epoch: 1, Steps: 364 | Train Loss: 1.7808929 Vali Loss: 0.1596017
+Validation loss decreased (inf --> 0.159602).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 63.16086292266846
+Epoch: 2, Steps: 364 | Train Loss: 0.0151331 Vali Loss: 0.4101954
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 63.230374813079834
+Epoch: 3, Steps: 364 | Train Loss: 0.0072345 Vali Loss: 0.3739031
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 63.258666038513184
+Epoch: 4, Steps: 364 | Train Loss: 0.0050316 Vali Loss: 0.4159759
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 65-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 63.413007974624634
+Epoch: 1, Steps: 364 | Train Loss: 1.6540390 Vali Loss: 0.7829795
+Validation loss decreased (inf --> 0.782979).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 63.20380997657776
+Epoch: 2, Steps: 364 | Train Loss: 0.0138867 Vali Loss: 1.1070981
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 63.27526879310608
+Epoch: 3, Steps: 364 | Train Loss: 0.0049532 Vali Loss: 1.1590420
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 63.254520893096924
+Epoch: 4, Steps: 364 | Train Loss: 0.0032765 Vali Loss: 1.3022733
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 66-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 63.39740300178528
+Epoch: 1, Steps: 364 | Train Loss: 1.2522011 Vali Loss: 0.6408252
+Validation loss decreased (inf --> 0.640825).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 63.142317056655884
+Epoch: 2, Steps: 364 | Train Loss: 0.0470478 Vali Loss: 0.3387216
+Validation loss decreased (0.640825 --> 0.338722).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 63.250154972076416
+Epoch: 3, Steps: 364 | Train Loss: 0.0490502 Vali Loss: 1.5669159
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 63.27889800071716
+Epoch: 4, Steps: 364 | Train Loss: 0.0665342 Vali Loss: 0.8576353
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 63.2773540019989
+Epoch: 5, Steps: 364 | Train Loss: 0.0074984 Vali Loss: 0.9208665
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 67-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 63.525214195251465
+Epoch: 1, Steps: 364 | Train Loss: 0.8140932 Vali Loss: 0.0719517
+Validation loss decreased (inf --> 0.071952).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 64.06015586853027
+Epoch: 2, Steps: 364 | Train Loss: 0.0778425 Vali Loss: 0.9066945
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 64.06198382377625
+Epoch: 3, Steps: 364 | Train Loss: 0.0454918 Vali Loss: 1.3972484
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 65.59810209274292
+Epoch: 4, Steps: 364 | Train Loss: 0.0281503 Vali Loss: 1.0865840
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 68-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 65.21624970436096
+Epoch: 1, Steps: 364 | Train Loss: 1.9436167 Vali Loss: 0.6020934
+Validation loss decreased (inf --> 0.602093).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 63.24804186820984
+Epoch: 2, Steps: 364 | Train Loss: 0.0295092 Vali Loss: 0.3742838
+Validation loss decreased (0.602093 --> 0.374284).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 63.36000394821167
+Epoch: 3, Steps: 364 | Train Loss: 0.0137440 Vali Loss: 0.3899194
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 63.2536039352417
+Epoch: 4, Steps: 364 | Train Loss: 0.0107202 Vali Loss: 0.4882516
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 63.77428483963013
+Epoch: 5, Steps: 364 | Train Loss: 0.0086599 Vali Loss: 0.4621473
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 69-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 67.11312508583069
+Epoch: 1, Steps: 364 | Train Loss: 1.0740516 Vali Loss: 0.0712482
+Validation loss decreased (inf --> 0.071248).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 63.6056272983551
+Epoch: 2, Steps: 364 | Train Loss: 0.3342797 Vali Loss: 0.5577333
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 63.6667959690094
+Epoch: 3, Steps: 364 | Train Loss: 0.0144092 Vali Loss: 0.1694582
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 63.67943716049194
+Epoch: 4, Steps: 364 | Train Loss: 0.0025207 Vali Loss: 0.1546966
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 70-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 63.65529704093933
+Epoch: 1, Steps: 364 | Train Loss: 0.7897404 Vali Loss: 0.4431954
+Validation loss decreased (inf --> 0.443195).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 63.71635365486145
+Epoch: 2, Steps: 364 | Train Loss: 0.1492852 Vali Loss: 0.5497726
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.025
+Epoch: 3 | time: 63.23808288574219
+Epoch: 3, Steps: 364 | Train Loss: 0.0618008 Vali Loss: 0.1635769
+Validation loss decreased (0.443195 --> 0.163577).  Saving model ...
+Updating learning rate to 0.0125
+Epoch: 4 | time: 63.85179805755615
+Epoch: 4, Steps: 364 | Train Loss: 0.0079932 Vali Loss: 0.1957955
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 66.1129298210144
+Epoch: 5, Steps: 364 | Train Loss: 0.0033501 Vali Loss: 0.1800429
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.003125
+Epoch: 6 | time: 65.64132785797119
+Epoch: 6, Steps: 364 | Train Loss: 0.0027708 Vali Loss: 0.1788500
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 71-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826
+Epoch: 1 | time: 64.99290990829468
+Epoch: 1, Steps: 364 | Train Loss: 1.3541287 Vali Loss: 0.2302538
+Validation loss decreased (inf --> 0.230254).  Saving model ...
+Updating learning rate to 0.05
+Epoch: 2 | time: 65.67559218406677
+Epoch: 2, Steps: 364 | Train Loss: 0.0238462 Vali Loss: 0.2057842
+Validation loss decreased (0.230254 --> 0.205784).  Saving model ...
+Updating learning rate to 0.025
+Epoch: 3 | time: 65.2879650592804
+Epoch: 3, Steps: 364 | Train Loss: 0.0063714 Vali Loss: 0.2207462
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.0125
+Epoch: 4 | time: 64.15625071525574
+Epoch: 4, Steps: 364 | Train Loss: 0.0062893 Vali Loss: 0.2561135
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 0.00625
+Epoch: 5 | time: 64.32603478431702
+Epoch: 5, Steps: 364 | Train Loss: 0.0036339 Vali Loss: 0.2408789
+EarlyStopping counter: 3 out of 3
+Early stopping
+None
+
+-------------Training for target 72-------------
+
+Use CPU
+Total number of parameters is: 3901
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+train 5836
+Original data shape: (14250, 271)
+Data shape after inter-day:  8550
+val 826

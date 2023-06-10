@@ -35,7 +35,7 @@ class SeriesDecomp(nn.Module):
         return res, moving_mean
 
 
-class DLinear(nn.Module):
+class Model(nn.Module):
     """
     Decomposition-Linear
     """
