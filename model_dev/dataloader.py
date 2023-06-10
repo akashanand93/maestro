@@ -36,7 +36,8 @@ class Dataset_Custom(Dataset):
             # drop any column containing nan
             df_data.dropna(axis=1, inplace=True)
             # dump this combined data
-            df_data.to_csv(os.path.join(self.root_path, self.data_path), index=False)
+            # df_data.to_csv(os.path.join(self.root_path, self.data_path), index=False)
+            # print(df_data.head())
         
 
         if self.data_segment is not None:
