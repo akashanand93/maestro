@@ -1,6 +1,8 @@
 import torch
 import json
+import os
 import numpy as np
+import pandas as pd
 
 
 def load_model(model_name):
@@ -16,6 +18,17 @@ def load_model(model_name):
     else:
         raise NotImplementedError
     return Model
+
+
+def get_stock_meta(instrument_file, data_path):
+
+    # load instrument config for stock meta
+    instrumen_config = json.load(open(instrument_file, "r"))
+    instrumen_config = {i['instrument_token']: i for i in instrumen_config}
+    # read columns header from data_path which is csv
+    columns = pd.read_csv(data_path, nrows=1).columns[1:]
+    index_to_column = {i: instrumen_config[int(columns[i])] for i in range(len(columns))}
+    return index_to_column
 
 
 class EarlyStopping:
@@ -120,7 +133,8 @@ def metric(pred, true):
 
 def read_default_args():
 
-    with open("/Users/shiva/Desktop/maestro/model_dev/default_args.json", "r") as f:
+    parent_directory_of_current_script = os.path.dirname(os.path.realpath(__file__))
+    with open("{}/default_args.json".format(parent_directory_of_current_script), "r") as f:
         default_args = json.load(f)
 
     default_args["use_gpu"] = True if torch.cuda.is_available() and default_args["use_gpu"] else False
@@ -132,19 +146,16 @@ def read_default_args():
 
     return default_args
 
-def detect_constant_price(stock_prices, duration):
 
-    # Create a boolean array which is True where prices are the same as the previous day
-    is_constant = np.diff(stock_prices, prepend=stock_prices[0]) == 0
+def get_stock_heatmap_matrix(model, num_stocks, args, setting_suffix=''):
 
-    # Count how many constant days are before each day
-    constant_days_count = np.cumsum(is_constant) - np.cumsum(np.pad(is_constant[:-duration+1], (duration-1, 0)))
+    heat_map_matrix = np.zeros((num_stocks, args.enc_in))
+    for t in range(num_stocks):
+        setting = 'mod_{}_sl{}_pl{}_ds_{}_tg_{}_ch_{}{}'.format(args.model, args.seq_len, args.pred_len, args.data_path.split('.')[0], t, args.enc_in, setting_suffix)
+        weights = os.listdir("{}/{}".format(args.checkpoints, setting))
+        sorted_weights = sorted(weights, key=lambda x: float(x.replace('checkpoint_','').replace('.pth','')), reverse=True)
+        model.load_state_dict(torch.load("{}/{}/{}".format(args.checkpoints, setting, sorted_weights[-1])))
+        attn_weights = model.Attention.weight.cpu().squeeze().detach().numpy()
+        heat_map_matrix[t] = attn_weights
 
-    # Find the first day where there are `duration` constant days before it
-    constant_period_end = np.argmax(constant_days_count >= duration)
-
-    # If there's no period of constant prices long enough, return None
-    if constant_days_count[constant_period_end] < duration:
-        return None
-
-    return constant_period_end - duration + 1, constant_period_end
+    return heat_map_matrix    

@@ -9,7 +9,8 @@ from dataloader import data_provider
 from utills import read_default_args
 
 
-config_file = '/Users/shiva/Desktop/maestro/configs/config_shiva.json'
+parent_to_parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+config_file = '{}/configs/config_shiva.json'.format(parent_to_parent_dir)
 config = json.load(open(config_file))
 data_dir = config['data_dir']
 raw_dir = "{}/{}".format(data_dir, config['raw_data_dir'])
@@ -29,8 +30,8 @@ args = {
    'train_only': False,
    'train_epochs': 20,
    'data_segment': None,
-   'model': 'nlinear_attention',
-   'enc_in': 270,
+   'model': 'dlinear_attention',
+   'enc_in': 397,
    'patience': 3,
    'target': 0,
    'stocks': None
@@ -44,12 +45,12 @@ args = argparse.Namespace(**default_args)
 # create a new args parse
 parser = argparse.ArgumentParser('Training script for MAESTRO')
 parser.add_argument('--target', type=int, required=True, help='Target index')
+parser.add_argument('--config', type=str, default=config_file, help='Config file path')
 
 
 if __name__ == "__main__":
     
     args_train = parser.parse_args()
-
     print("\n-------------Training for target {}-------------\n".format(args_train.target))
     args.target = args_train.target
     exp = ExpMain(args)

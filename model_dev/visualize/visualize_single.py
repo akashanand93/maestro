@@ -5,10 +5,12 @@ import torch
 import numpy as np
 import pandas as pd
 import torch.nn as nn
+import seaborn as sns
 from model_dev.decider import Decider
 import matplotlib.pyplot as plt
 from model_dev.dataloader import data_provider
 from datetime import datetime
+from model_dev.utills import get_stock_meta
 from model_dev.utills import load_model
 from sklearn.preprocessing import StandardScaler
 
@@ -58,14 +60,7 @@ class Visualize:
         # self.decider = Decider(0, args.seq_len, args.pred_len, log=decision_log, min_cutoff=min_cutoff)
 
         if self.title_meta:
-            # load instrument config for stock meta
-            instrument_file = "{}/{}".format(args.root_path, args.instrument_file)
-            instrumen_config = json.load(open(instrument_file, "r"))
-            self.instrumen_config = {i['instrument_token']: i for i in instrumen_config}
-            # read columns header from data_path which is csv
-            data_path = "{}/{}".format(args.root_path, args.data_path)
-            columns = pd.read_csv(data_path, nrows=1).columns[1:]
-            self.index_to_column = {i: self.instrumen_config[int(columns[i])] for i in range(len(columns))}
+            self.index_to_column = get_stock_meta
 
     def plot(self, idx, plot=True, plt_len=100):
 
@@ -100,3 +95,35 @@ class Visualize:
             plt.legend(); plt.show()
 
         return y_pred_, y_[:,self.target], loss
+    
+
+
+def craete_heatmap(stocks_matrix, names):
+
+        # Assuming your matrix is called 'stocks'
+    # Scale down the size while maintaining the aspect ratio
+    width = stocks_matrix.shape[1]//5
+    height = stocks_matrix.shape[0]//5
+
+    # Set the figure size
+    plt.figure(figsize=(width, height))
+
+    # Create a heatmap
+    ax = sns.heatmap(stocks_matrix, cmap='coolwarm', square=True, vmin=-1, vmax=1)
+
+    plt.yticks(rotation=0)
+    plt.xticks(np.arange(stocks_matrix.shape[1]), names, rotation=90)
+    plt.tick_params(axis='x', labelsize=8)
+
+    # plot names on y axis
+    plt.yticks(np.arange(stocks_matrix.shape[0]), names[:stocks_matrix.shape[0]], rotation=0)
+    plt.tick_params(axis='y', labelsize=8)
+
+    # Label the colorbar
+    colorbar = ax.collections[0].colorbar
+    colorbar.set_label('value')
+
+    # Give your heatmap a title
+    plt.title('Stocks Matrix Heatmap')
+
+    plt.show()

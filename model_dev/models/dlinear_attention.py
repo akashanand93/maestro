@@ -49,7 +49,9 @@ class Model(nn.Module):
         self.decompsition = SeriesDecomp(self.decomp_kernal)
         self.individual = configs.individual
         self.channels = configs.enc_in
-
+        
+        # create a layer which gives weightage to each channel, and applied to input directly
+        # self.Attention_inp = nn.Linear(self.channels, self.channels)
         self.Linear_Seasonal = nn.Linear(self.seq_len, self.pred_len)
         self.Linear_Trend = nn.Linear(self.seq_len, self.pred_len)
         self.Attention = nn.Linear(self.channels, 1)
@@ -60,6 +62,12 @@ class Model(nn.Module):
 
     def forward(self, x):
         # x: [Batch, Input length, Channel]
+
+        # x = x.permute(0, 2, 1)  # [Batch, Channel, Input length]
+        # x = self.Attention_inp(x)  # [Batch, Channel, Input length]
+        # x = torch.relu(x)
+        # x = x.permute(0, 2, 1)  # [Batch, Input length, Channel]
+
         seasonal_init, trend_init = self.decompsition(x)
         seasonal_init, trend_init = seasonal_init.permute(0, 2, 1), trend_init.permute(0, 2, 1)
 

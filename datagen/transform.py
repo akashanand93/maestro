@@ -21,7 +21,7 @@ class Transoform(object):
         self.transform_map = {'ltsf': self.ltsf, 'backtrader': self.backtrader}
         self.all_channels = ['open', 'high', 'low', 'close', 'volume']
 
-    def ltsf(self, nan_threshold=0.97, mean_thresh_price=5, mean_trade_thresh=1000000):
+    def ltsf(self, nan_threshold=0.97, mean_thresh_price=5, mean_trade_thresh=500000):
 
         for file in os.listdir(self.inp_data):
 
