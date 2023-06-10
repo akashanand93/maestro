@@ -13,74 +13,6 @@ from model_dev.utills import load_model
 from sklearn.preprocessing import StandardScaler
 
 
-def draw_barchart_single(profits, day_times):
-
-    assert len(profits) == len(day_times), "Lists must have the same length"
-    fig, ax = plt.subplots()
-    ax.bar(day_times, profits)
-    fig.set_size_inches(18, 4)
-
-    # create a vertical line at start of the each day in plot
-    for i in range(1, len(day_times)):
-        if day_times[i-1].split()[2].split('|')[-1] != day_times[i].split()[2].split('|')[-1]:
-            ax.axvline(x=i, color='red', linestyle='--', linewidth=0.6)
-            ax.text(i, 0.02, day_times[i].split()[2].split('|')[-1], transform=ax.get_xaxis_transform(), rotation=0, size=10, color='green')
-
-    for i in range(1, len(day_times)):
-        if day_times[i-1].split()[3].split('|')[-1] != day_times[i].split()[3].split('|')[-1]:
-            ax.axvline(x=i, color='red', linestyle='--', linewidth=0.6)
-            ax.text(i, 0.02, day_times[i].split()[3].split('|')[-1], transform=ax.get_xaxis_transform(), rotation=0, size=10, color='green')
-
-    ax.set_title("Profits by Day-Time")
-    ax.set_ylabel("Profits")
-    ax.set_xticks([])
-    plt.xticks(rotation=90)
-    plt.show()
-
-
-def draw_barchart(args, setting, points_per_page, step, min_cutoff=0, w_idx=0, mode='test', stocks=np.arange(0, 319)):
-
-    mode_points = {'test': 2761, 'val': 1300}
-    datapoints = mode_points[mode]
-
-    weights = os.listdir("{}/{}".format(args.checkpoints, setting))
-    sorted_weights = sorted(weights, key=lambda x: float(x.replace('checkpoint_', '').replace('.pth', '')),
-                            reverse=True)
-
-    vis = Visualize(args, mode=mode, setting=setting, weights=sorted_weights[w_idx], title_meta=1, decision_log=0,
-                    min_cutoff=min_cutoff)
-    profit_list = []
-    date_list = []
-    fund_utilization = 0
-    total_transactions = 0
-    total_commision = 0
-
-    for i in range(0, datapoints, step):
-        profit, date_info, fund_utilized, transactions, commision = vis.plot(i, stocks, plot=0, print_net_profit=0)
-        profit_list.append(profit)
-        date_list.append('|'.join(date_info))
-        fund_utilization += fund_utilized
-        total_transactions += transactions
-        total_commision += commision
-
-    print("Fund utilization: {}, Net profit: {}".format(int(fund_utilization), sum(profit_list)))
-    growth = round((sum(profit_list) / fund_utilization) * 100, 4)
-    print("Growth: {}%".format(growth))
-    print("Total transactions: {}".format(total_transactions))
-    print("Total commision: {:d}".format(int(total_commision)))
-
-    datapoints = datapoints // step
-
-    if points_per_page == -1:
-        points_per_page = datapoints
-
-    pages = datapoints // points_per_page + int((datapoints % points_per_page > 0))
-    for i in range(pages):
-        start = i * points_per_page
-        end = (i + 1) * points_per_page
-        draw_barchart_single(profit_list[start:end], date_list[start:end])
-
-
 def convert_date_format(date_string):
 
     dt = datetime.strptime(date_string, "%Y-%m-%d %H:%M:%S")
@@ -117,12 +49,13 @@ class Visualize:
         self.model = Model(self.config)
         self.model.load_state_dict(torch.load(self.checkpoint_path))
         print("Load model from {}".format(self.checkpoint_path))
+        self.model.eval()
 
         # data loader object
         self.dataloader, _ = data_provider(args, mode, return_date=True)
 
         # startegy decider object
-        self.decider = Decider(0, args.seq_len, args.pred_len, log=decision_log, min_cutoff=min_cutoff)
+        # self.decider = Decider(0, args.seq_len, args.pred_len, log=decision_log, min_cutoff=min_cutoff)
 
         if self.title_meta:
             # load instrument config for stock meta
