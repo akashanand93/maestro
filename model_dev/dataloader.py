@@ -50,6 +50,7 @@ class Dataset_Custom(Dataset):
         print("Original data shape:", df_data.shape)    
 
         date_col = list(df_data['date'])
+        # print(df_data.head())
 
         # cerate a new index mapping
         self.new_index = []
