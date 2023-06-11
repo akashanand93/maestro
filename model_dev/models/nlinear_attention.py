@@ -18,6 +18,10 @@ class Model(nn.Module):
         # self.Linear.weight = nn.Parameter((1/self.seq_len)*torch.ones([self.pred_len,self.seq_len]))
         self.channels = configs.enc_in
 
+        # self.Linear = nn.ModuleList()
+        # for i in range(self.channels):
+        #     self.Linear.append(nn.Linear(self.seq_len, self.pred_len))
+
         self.Linear = nn.Linear(self.seq_len, self.pred_len)
         self.Attention = nn.Linear(self.channels, 1)
         # self.BatchNorm = nn.BatchNorm1d(self.channels)
@@ -33,6 +37,11 @@ class Model(nn.Module):
         seq_last = x[:, -1:, :].detach()
         x = x - seq_last
         
+        # output = torch.zeros([x.size(0), self.pred_len, x.size(2)], dtype=x.dtype).to(x.device)
+        # for i in range(self.channels):
+        #     output[:, :, i] = self.Linear[i](x[:, :, i])
+        # x = output
+
         x = x.permute(0, 2, 1)
         x = self.Linear(x)  # [Batch, Channel, Output length]
         x = x.permute(0, 2, 1)  # [Batch, Output length, Channel]

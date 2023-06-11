@@ -5,19 +5,20 @@ import numpy as np
 import pandas as pd
 
 
-def load_model(model_name):
+def load_model(args):
 
-    if model_name == 'dlinear':
+    if args.model == 'dlinear':
         from model_dev.models.dlinear import Model
-    elif model_name == 'nlinear':
+    elif args.model == 'nlinear':
         from model_dev.models.nlinear import Model
-    elif model_name == 'nlinear_attention':
+    elif args.model == 'nlinear_attention':
         from model_dev.models.nlinear_attention import Model
-    elif model_name == 'dlinear_attention':
+    elif args.model == 'dlinear_attention':
         from model_dev.models.dlinear_attention import Model    
     else:
         raise NotImplementedError
-    return Model
+    model = Model(args)
+    return model
 
 
 def get_stock_meta(instrument_file, data_path):

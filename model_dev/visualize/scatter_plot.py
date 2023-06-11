@@ -19,15 +19,6 @@ def convert_date_format(date_string):
     return new_date_string
 
 
-class Config:
-    def __init__(self, seq_len, pred_len, channels, individual, decomp_kernal):
-        self.seq_len = seq_len
-        self.pred_len = pred_len
-        self.enc_in = channels
-        self.individual = individual
-        self.decomp_kernal = decomp_kernal
-
-
 class Scatter:
 
     def __init__(self, args, setting, weights, mode='train', title_meta=True):
@@ -41,13 +32,11 @@ class Scatter:
         self.pred_len = args.pred_len
         self.channels = args.enc_in
         self.target = args.target
-        self.config = Config(self.seq_len, self.pred_len, self.channels, args.individual, args.decomp_kernal)
 
         # load model and weights
         self.checkpoint_path = os.path.join(args.checkpoints, setting, weights)
 
-        Model = load_model(args.model)
-        self.model = Model(self.config)
+        self.model = load_model(args)
         self.model.load_state_dict(torch.load(self.checkpoint_path))
         print("Load model from {}".format(self.checkpoint_path))
 

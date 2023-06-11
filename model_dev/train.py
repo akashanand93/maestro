@@ -30,9 +30,9 @@ args = {
    'train_only': False,
    'train_epochs': 20,
    'data_segment': None,
-   'model': 'dlinear_attention',
+   'model': 'nlinear_attention',
    'enc_in': 397,
-   'patience': 3,
+   'patience': 5,
    'target': 0,
    'stocks': None
 }

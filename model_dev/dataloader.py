@@ -83,7 +83,6 @@ class Dataset_Custom(Dataset):
         border1s_norm = [0, num_train_norm - self.seq_len, len(df_data) - num_test_norm - self.seq_len]
         border2s_norm = [num_train_norm, num_train_norm + num_vali_norm, len(df_data)]
 
-        
         train_data = df_data[border1s_norm[0]:border2s_norm[0]]
         self.scaler.fit(train_data.values)
         self.data = self.scaler.transform(df_data.values)
