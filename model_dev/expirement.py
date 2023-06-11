@@ -57,8 +57,7 @@ class ExpMain(ExpBasic):
 
     def _build_model(self):
 
-        Model = load_model(self.args.model)
-        model = Model(self.args).float()
+        model = load_model(self.args)
         params = sum(p.numel() for p in model.parameters() if p.requires_grad)
         print('Total number of parameters is: {}'.format(params))
         if self.args.use_multi_gpu and self.args.use_gpu:
