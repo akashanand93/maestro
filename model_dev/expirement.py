@@ -7,8 +7,8 @@ import pandas as pd
 import torch.nn as nn
 from tqdm import tqdm
 from torch import optim
-from dataloader import data_provider
-from utills import EarlyStopping, adjust_learning_rate, metric, load_model
+from model_dev.dataloader import data_provider
+from model_dev.utills import EarlyStopping, adjust_learning_rate, metric, load_model
 warnings.filterwarnings('ignore')
 
 

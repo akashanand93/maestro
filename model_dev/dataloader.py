@@ -134,6 +134,7 @@ def data_provider(args, flag, return_date=False):
     data_set = Data(root_path=args.root_path, data_path=args.data_path, flag=flag,
                     size=[args.seq_len, args.pred_len], train_only=train_only, return_date=return_date,
                     data_segment=args.data_segment, stocks=args.stocks)
+    
     print(flag, len(data_set))
     data_loader = DataLoader(data_set, batch_size=batch_size, shuffle=shuffle_flag, num_workers=args.num_workers,
                              drop_last=drop_last)
