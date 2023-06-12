@@ -88,7 +88,7 @@ if __name__ == "__main__":
         for target, correlated in correlated_stocks.items():
             # remove target from correlated stocks and add it at firet position
             correlated = [target] + [c for c in correlated if c != target]
-            train_correlated(target, correlated, suffix='corr')
+            train_correlated(target, correlated, suffix='corr_k50')
 
             
     
