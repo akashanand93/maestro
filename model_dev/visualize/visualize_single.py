@@ -101,7 +101,6 @@ def craete_heatmap(stocks_matrix, names):
 
     # Create a heatmap
     ax = sns.heatmap(stocks_matrix, cmap='RdBu', square=True, vmin=-1, vmax=1)
-
     plt.yticks(rotation=0)
     plt.xticks(np.arange(stocks_matrix.shape[1]), names, rotation=90)
     plt.tick_params(axis='x', labelsize=8)

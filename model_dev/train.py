@@ -3,10 +3,10 @@ import json
 import torch
 import argparse
 from torch import nn
-from expirement import ExpMain
+from model_dev.expirement import ExpMain
 import matplotlib.pyplot as plt
-from dataloader import data_provider
-from utills import read_default_args
+from model_dev.dataloader import data_provider
+from model_dev.utills import read_default_args
 
 
 parent_to_parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -44,7 +44,7 @@ args = argparse.Namespace(**default_args)
 
 # create a new args parse
 parser = argparse.ArgumentParser('Training script for MAESTRO')
-parser.add_argument('--target', type=int, required=False, help='Target index', default=None)
+parser.add_argument('--target', type=int, required=False, help='Target index', default=0)
 parser.add_argument('--config', type=str, default=config_file, help='Config file path')
 parser.add_argument('--correlated_stocks', type=str, required=False, default=None, help='Correlated stocks file path')
 parser.add_argument('--min_correlation', type=int, required=False, default=0, help='minimum number of correlated stocks')
