@@ -1,0 +1,7 @@
+{
+  "data_dir": "/Users/akashanand/repo/data/ltsf/iteration1/data_maestro",
+  "raw_data_dir": "raw_data",
+  "raw_data_csv": "raw_csv",
+  "filterd_data": "filtered_data.csv",
+  "stock_meta": "instruments.json"
+}
