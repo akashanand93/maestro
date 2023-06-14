@@ -3,6 +3,7 @@ import json
 import os
 import numpy as np
 import pandas as pd
+from datetime import datetime, timedelta
 
 
 def load_model(args):
@@ -146,6 +147,32 @@ def read_default_args():
         default_args["gpu"] = default_args["device_ids"][0]
 
     return default_args
+
+def get_dates_between(date1, date2, freq='minute'):
+    # Date is in 2023-03-27 09:15:00 kind of format
+    # freq is in minute, hour, day, week, month, year
+    # Returns a list of dates between date1 and date2
+    date1 = datetime.strptime(date1, '%Y-%m-%d %H:%M:%S')
+    date2 = datetime.strptime(date2, '%Y-%m-%d %H:%M:%S')
+    if freq == 'minute':
+        delta = timedelta(minutes=1)
+    elif freq == 'hour':
+        delta = timedelta(hours=1)
+    elif freq == 'day':
+        delta = timedelta(days=1)
+    elif freq == 'week':
+        delta = timedelta(weeks=1)
+    elif freq == 'month':
+        delta = timedelta(months=1)
+    elif freq == 'year':
+        delta = timedelta(years=1)
+    else:
+        raise Exception("Invalid freq")
+    dates = []
+    while date1 <= date2:
+        dates.append(date1.strftime('%Y-%m-%d %H:%M:%S'))
+        date1 += delta
+    return dates
 
 
 def get_stock_heatmap_matrix(model, num_stocks, args, setting_suffix=''):
