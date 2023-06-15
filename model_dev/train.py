@@ -34,7 +34,8 @@ args = {
    'enc_in': 397,
    'patience': 5,
    'target': 0,
-   'stocks': None
+   'stocks': None,
+   'dataloader_type': 'intraday'
 }
 
 for key, value in args.items():
@@ -55,7 +56,7 @@ def train(target, suffix=''):
     print("\n-------------Training for target {}-------------\n".format(target))
     args.target = target
     exp = ExpMain(args)
-    setting = 'mod_{}_sl{}_pl{}_ds_{}_tg_{}_ch_{}_{}'.format(args.model, args.seq_len, args.pred_len, args.data_path.split('.')[0], args.target, args.enc_in, suffix)
+    setting = 'mod_{}_sl{}_pl{}_ds_{}_tg_{}_ch_{}_{}_test'.format(args.model, args.seq_len, args.pred_len, args.data_path.split('.')[0], args.target, args.enc_in, suffix)
     print(exp.train(setting))
 
 

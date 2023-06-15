@@ -40,7 +40,7 @@ class Visualize:
         # load model and weights
         self.checkpoint_path = os.path.join(args.checkpoints, setting, weights)
         self.model = load_model(args)
-        self.model.load_state_dict(torch.load(self.checkpoint_path))
+        self.model.load_state_dict(torch.load(self.checkpoint_path, map_location=torch.device('cpu')))
         print("Load model from {}".format(self.checkpoint_path))
         self.model.eval()
 
@@ -53,7 +53,7 @@ class Visualize:
         if self.title_meta:
             self.index_to_column = get_stock_meta
 
-    def plot(self, idx, plot=True, plt_len=100):
+    def plot(self, idx, plot=True, plt_len=100, normalize=True):
 
         x, y, date_info = self.dataloader[idx]  # x is seq_len*channel, y is pred_len*channel
 
@@ -66,13 +66,13 @@ class Visualize:
 
         y_ = y.copy()
         y_pred_ = y_pred.copy()
-
-        x = self.dataloader.inverse_transform(x)
-        y = self.dataloader.inverse_transform(y)
-
+        
         # make y_pred (60*8) by repeating it channel times
         y_pred = np.repeat(y_pred, self.channels).reshape(self.pred_len, self.channels)
-        y_pred = self.dataloader.inverse_transform(y_pred)
+        if not normalize:
+            x = self.dataloader.inverse_transform(x)
+            y = self.dataloader.inverse_transform(y)
+            y_pred = self.dataloader.inverse_transform(y_pred)
 
         full_pred = np.concatenate((x[:,self.target], y_pred[:,self.target]))
         full_data = np.concatenate((x[:,self.target], y[:,self.target]))
